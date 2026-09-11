@@ -1,343 +1,178 @@
-/* GRE score report refinements. Scoped to this report so legacy eReg pages stay unchanged. */
-#scoreTable {
-  max-width: 100%;
+@font-face {
+  font-family: "Beausite Classic";
+  src: url("../fonts/BeausiteClassicWeb-Clear.woff2") format("woff2");
+  font-display: swap;
 }
 
-#scoreTable > h1 {
-  margin-bottom: 14px;
+@font-face {
+  font-family: "Speckless";
+  src: url("../fonts/Speckless-Regular.woff2") format("woff2");
+  font-display: swap;
 }
 
-#scoreTable > div[align="left"] {
-  padding-left: 127px !important;
-  margin-bottom: 12px;
+:root {
+  --ets-purple: #62254f;
+  --ets-purple-dark: #4e1d3f;
+  --ets-brick: #b2432f;
+  --ets-orange: #e8a77d;
+  --ets-blue: #d0e3f4;
+  --ets-ink: #252525;
+  --ets-border: #a8a5a5;
+  --ets-soft: #f5eeea;
 }
 
-#scoreTable .score-report-download {
-  display: inline-flex;
-  min-height: 40px;
-  align-items: center;
-  justify-content: center;
-}
+* { box-sizing: border-box; }
+html { overflow-x: hidden; }
 
-/* The generated report uses millimetre-wide tables. This wrapper keeps that layout
-   intact while containing horizontal scrolling to the report section. */
-#scoreTable .report-scroll {
-  width: 100%;
-  max-width: 100%;
-  overflow-x: auto;
-  overflow-y: hidden;
-  -webkit-overflow-scrolling: touch;
-  overscroll-behavior-inline: contain;
-  scrollbar-color: #602b4c #f4f4f4;
-  scrollbar-width: thin;
-}
-
-#scoreTable .report-scroll:focus-visible {
-  outline: 3px solid rgba(96, 43, 76, 0.35);
-  outline-offset: 2px;
-}
-
-#scoreTable .report-scroll > table {
-  margin-bottom: 0;
-}
-
-/* The score snapshot is now native HTML rather than a bitmap, so its spacing,
-   score pointers and divider length are consistent at every scale. */
-#score-snapshot {
-  width: 725px;
-  max-width: none;
-  margin-top: -15px;
-  padding: 0;
-  color: #212121;
+body {
+  min-width: 0;
+  margin: 0;
+  overflow-x: hidden;
   background: #fff;
-  font-family: Arial, "Helvetica Neue", sans-serif;
-  font-size: 11px;
-}
-
-#score-snapshot *,
-#score-snapshot *::before,
-#score-snapshot *::after {
-  box-sizing: border-box;
-}
-
-#score-snapshot .banner {
-  min-height: 24px;
-  margin: 0 0 7px;
-  padding: 5px 10px;
-  background: #62254f;
-  color: #fff;
-  font-size: 12px;
-  font-weight: 700;
-  line-height: 1.2;
-}
-
-#score-snapshot .score-cards {
-  margin: 0;
-  padding: 8px 5px 4px;
-  border: 1px solid #e8a77d;
-}
-
-#score-snapshot .cards-grid {
-  display: flex;
-  min-width: 0;
-}
-
-#score-snapshot .card {
-  position: relative;
-  display: flex;
-  min-width: 0;
-  flex: 1 1 0;
-  flex-direction: column;
-  padding: 0 5px;
-  text-align: center;
-}
-
-/* The separator stops with the score graphic instead of extending through the
-   percentile label at the bottom of the card. */
-#score-snapshot .card + .card::before {
-  position: absolute;
-  top: 0;
-  bottom: 31px;
-  left: 0;
-  width: 1px;
-  content: "";
-  background: #e8a77d;
-}
-
-#score-snapshot .card-title {
-  margin: 0 0 6px;
-  padding: 5px 4px;
-  background: #b2432f;
-  color: #fff;
-  font-size: 11px;
-  font-weight: 700;
-  line-height: 1.2;
-}
-
-#score-snapshot .score-graphic {
-  position: relative;
-  min-height: 137px;
-  padding: 42px 7px 0;
-}
-
-#score-snapshot .score-label,
-#score-snapshot .score-value {
-  position: absolute;
-  left: clamp(31px, var(--score-position), calc(100% - 31px));
-  transform: translateX(-50%);
-}
-
-#score-snapshot .score-label {
-  top: 0;
-  width: 90px;
-  color: #212121;
-  font-size: 10px;
-  font-weight: 700;
-  line-height: 1.15;
-}
-
-#score-snapshot .score-value {
-  top: 28px;
-  min-width: 54px;
-  padding: 5px 8px;
-  border-radius: 6px;
-  background: #b2432f;
-  color: #fff;
+  color: var(--ets-ink);
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 16px;
-  font-weight: 700;
-  line-height: 1;
+  line-height: 1.4;
 }
 
-#score-snapshot .score-value::after {
-  position: absolute;
-  bottom: -9px;
-  left: 50%;
-  width: 0;
-  height: 0;
-  border: 9px solid transparent;
-  border-top-color: #b2432f;
-  border-bottom: 0;
-  transform: translateX(-50%);
-  content: "";
-}
+a { color: #155789; }
+a:focus-visible, button:focus-visible, [tabindex="0"]:focus-visible { outline: 3px solid #0097cb; outline-offset: 3px; }
 
-#score-snapshot .score-scale {
-  position: relative;
-  display: grid;
-  grid-template-columns: 24px minmax(0, 1fr) 24px;
-  align-items: center;
-  gap: 4px;
-  padding-top: 22px;
-  color: #555;
-  font-size: 9px;
-}
+.skip-link { position: absolute; top: -50px; left: 14px; z-index: 5; padding: 7px 11px; background: #fff; }
+.skip-link:focus { top: 8px; }
 
-#score-snapshot .scale-track {
-  position: relative;
-  height: 15px;
-  background: #d0e3f4;
-}
+.ereg-header { border-bottom: 1px solid #d6d3d4; background: #fff; }
+.ereg-nav { display: flex; min-height: 90px; max-width: 1240px; margin: 0 auto; padding: 0 24px; align-items: center; justify-content: space-between; gap: 20px; }
+.program-logo { display: flex; align-items: center; }
+.program-logo img { width: 142px; height: auto; }
+.ereg-nav-links { display: flex; align-self: stretch; align-items: center; gap: 0; }
+.ereg-nav-links a { display: flex; min-height: 50px; padding: 0 18px; align-items: center; color: #35353a; font-family: "Speckless", Arial, sans-serif; font-size: 15px; text-decoration: none; }
+.ereg-nav-links a + a { border-left: 1px solid #d7d7d7; }
+.ereg-nav-links a:hover { text-decoration: underline; }
 
-#score-snapshot .scale-marker {
-  position: absolute;
-  top: -12px;
-  bottom: -12px;
-  left: clamp(1px, var(--score-position), calc(100% - 1px));
-  width: 2px;
-  transform: translateX(-50%);
-  background: #212121;
-}
+.score-page { width: min(100% - 48px, 1080px); margin: 42px auto 0; }
+.score-page-heading { display: flex; margin-bottom: 28px; align-items: center; justify-content: space-between; gap: 20px; }
+.score-page-heading h1 { margin: 0; color: #373437; font-family: "Beausite Classic", Georgia, serif; font-size: clamp(31px, 4vw, 42px); font-weight: 400; line-height: 1.1; }
 
-#score-snapshot .percentile {
-  min-height: 29px;
-  margin: 5px 0 0;
-  color: #212121;
-  font-size: 10px;
-  font-weight: 700;
-  line-height: 1.15;
-}
+.download-button, .button { display: inline-flex; min-height: 42px; padding: 10px 19px; align-items: center; justify-content: center; border: 1px solid transparent; border-radius: 2px; font-family: Arial, Helvetica, sans-serif; font-size: 15px; font-weight: 700; line-height: 1; text-decoration: none; }
+.download-button, .button-primary { border-color: var(--ets-purple); background: var(--ets-purple); color: #fff; }
+.download-button:hover, .button-primary:hover { background: var(--ets-purple-dark); color: #fff; }
 
-#score-snapshot .percentile span {
-  display: block;
-}
+.score-report { width: 100%; padding: 38px 42px 44px; border: 1px solid #d3d0d0; background: #fff; box-shadow: 0 1px 2px rgba(0, 0, 0, .08); }
+.report-document-header { display: flex; min-height: 52px; align-items: flex-start; justify-content: space-between; gap: 24px; }
+.report-document-header img { width: 116px; height: auto; }
+.report-document-header div { text-align: right; }
+.report-document-header h2 { margin: 0; color: var(--ets-brick); font-size: 21px; font-weight: 400; line-height: 1.1; }
+.report-document-header p { margin: 8px 0 0; font-size: 12px; line-height: 1.2; }
+.orange-rule { height: 2px; margin: 11px 0 19px; background: var(--ets-brick); }
+.identity-grid { display: grid; grid-template-columns: minmax(0, 1fr) 176px; gap: 44px; align-items: start; }
+.person-details h3 { margin: 0 0 13px; font-size: 18px; line-height: 1.15; }
+.person-details dl { margin: 0; }
+.person-details dl div { display: flex; min-height: 22px; }
+.person-details dt { flex: 0 0 auto; font-weight: 700; }
+.person-details dd { margin: 0 0 0 4px; overflow-wrap: anywhere; }
+.test-taker-photo { width: 172px; height: 130px; margin: 0; overflow: hidden; border: 1px solid #e1dfdf; background: #f5f5f5; }
+.test-taker-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+.test-details { margin: 22px 0 42px; }
+.test-details p { margin: 0; }
+.test-details p:first-child { margin-bottom: 2px; font-size: 17px; }
 
-/* Personal-information reference rules and tighter vertical rhythm requested in
-   the supplied mobile comparison. */
-#scoreTable .a34,
-#scoreTable .a39 {
-  line-height: 1.45;
-}
+.score-overview > h2, .score-history > h2, .recipients > h2, .score-information > h2 { margin: 0; padding: 6px 12px; background: var(--ets-purple); color: #fff; font-size: 18px; font-weight: 700; line-height: 1.2; }
+.score-cards-scroll, .table-scroll { max-width: 100%; overflow-x: auto; overflow-y: hidden; -webkit-overflow-scrolling: touch; overscroll-behavior-inline: contain; scrollbar-color: var(--ets-purple) #f0f0f0; scrollbar-width: thin; }
+.score-cards-scroll { border: 1px solid var(--ets-orange); border-top: 0; }
+.score-cards { display: grid; min-width: 720px; grid-template-columns: repeat(3, 1fr); padding: 9px 6px 4px; }
+.score-card { position: relative; display: flex; min-width: 0; min-height: 239px; padding: 0 7px; flex-direction: column; text-align: center; }
+.score-card + .score-card::before { position: absolute; top: 0; right: 100%; bottom: 37px; width: 1px; background: var(--ets-orange); content: ""; }
+.score-card h3 { min-height: 29px; margin: 0; padding: 5px 3px; background: var(--ets-brick); color: #fff; font-size: 15px; font-weight: 700; line-height: 1.25; }
+.score-card-body { position: relative; flex: 1; min-height: 163px; padding: 43px 14px 0; }
+.score-label, .score-value { position: absolute; left: clamp(36px, var(--score-position), calc(100% - 36px)); transform: translateX(-50%); }
+.score-label { top: 11px; width: 120px; font-size: 13px; font-weight: 700; }
+.score-value { top: 43px; min-width: 62px; padding: 7px 10px; border-radius: 7px; background: var(--ets-brick); color: #fff; font-size: 22px; line-height: 1; }
+.score-value::after { position: absolute; bottom: -9px; left: 50%; width: 0; height: 0; border: 9px solid transparent; border-top-color: var(--ets-brick); border-bottom: 0; transform: translateX(-50%); content: ""; }
+.score-scale { display: grid; grid-template-columns: 28px minmax(0, 1fr) 28px; align-items: center; gap: 4px; padding-top: 52px; color: #555; font-size: 12px; }
+.scale-track { position: relative; height: 16px; background: var(--ets-blue); }
+.scale-marker { position: absolute; top: -14px; bottom: -14px; left: clamp(1px, var(--score-position), calc(100% - 1px)); width: 2px; transform: translateX(-50%); background: #252525; }
+.percentile { min-height: 32px; margin: 5px 0 0; font-size: 14px; line-height: 1.15; }
+.percentile strong { display: block; }
 
-#scoreTable .a34 {
-  padding-block: 1px;
-  background-image: linear-gradient(to bottom, transparent 15px, #0a6689 15px, #0a6689 16px);
-  background-size: 100% 16px;
-  background-repeat: repeat-y;
-}
+.score-history { margin-top: 0; }
+.score-history > h3, .recipient-section h3, .policy-block h3 { margin: 14px 4px 6px; color: var(--ets-purple); font-size: 19px; line-height: 1.25; }
+.history-table, .recipient-table { width: 100%; min-width: 760px; border-collapse: collapse; font-size: 14px; }
+.history-table th, .history-table td, .recipient-table th, .recipient-table td { padding: 7px 10px; border: 1px solid var(--ets-border); text-align: left; vertical-align: top; }
+.history-table thead tr:first-child th { border-color: #fff; background: var(--ets-brick); color: #fff; text-align: center; }
+.history-table thead tr:nth-child(2) th, .history-table thead th[rowspan] { background: var(--ets-soft); color: #222; }
+.history-table td:not(:first-child) { text-align: center; }
+.subject-heading { margin-top: 58px !important; }
+.score-history > p { margin: 22px 4px 56px; }
+.recipients { margin-top: 0; }
+.recipient-section { margin: 0 0 23px; }
+.recipient-table { min-width: 820px; }
+.recipient-table th { background: var(--ets-soft); color: #222; white-space: nowrap; }
+.recipient-table tbody td { height: 25px; }
+.score-information { margin-top: 76px; }
+.policy-block { margin: 30px 4px 0; }
+.policy-block h3 { margin: 0 0 10px; color: #222; font-size: 17px; }
+.policy-block p { margin: 0 0 16px; line-height: 1.48; }
+.policy-block ul { margin: 0; padding-left: 22px; }
+.policy-block li { margin: 8px 0; line-height: 1.42; }
 
-#scoreTable .a39 > span:first-child {
-  display: none;
-}
+.report-actions { display: flex; margin: 32px 0 46px; padding-top: 16px; border-top: 2px solid #ccc; align-items: center; justify-content: space-between; gap: 15px; }
+.button { cursor: pointer; }
+.button-secondary { border-color: var(--ets-purple); background: #fff; color: var(--ets-purple); }
+.button-secondary:hover { background: #f7f0f5; color: var(--ets-purple-dark); }
 
-#scoreTable div.a42v,
-#scoreTable div.a42 {
-  height: auto !important;
-  min-height: 0;
-}
-
-/* Keep the score-history text at the top of each short row, as in the official
-   reference, without changing the report data or table widths. */
-#scoreTable .a201 td,
-#scoreTable .a201 [class^="a1"] {
-  vertical-align: top;
-  line-height: 1.25;
-}
-
-/* Normalize the lengthy policy blocks so their spacing matches the tighter
-   official mobile layout when viewed inside the scrolling report sections. */
-#scoreTable .a409,
-#scoreTable .a414p,
-#scoreTable .a419,
-#scoreTable .a424,
-#scoreTable .a432,
-#scoreTable .a440,
-#scoreTable .a448,
-#scoreTable .a451,
-#scoreTable .a462 {
-  line-height: 1.38;
-}
-
-/* The original snapshot stylesheet is embedded after this file. Add the report
-   id to these overrides so the requested refinements win without editing that
-   generated stylesheet. */
-#scoreTable #score-snapshot {
-  width: 725px;
-  max-width: none;
-  margin-top: -15px;
-  padding: 0;
-}
-
-#scoreTable #score-snapshot .banner {
-  min-height: 24px;
-  margin: 0 0 7px;
-  padding: 5px 10px;
-  background: #62254f;
-  font-size: 12px;
-  line-height: 1.2;
-}
-
-#scoreTable #score-snapshot .score-cards {
-  margin: 0;
-  padding: 8px 5px 4px;
-}
-
-#scoreTable #score-snapshot .card + .card {
-  border-left: 0;
-}
-
-/* The generated snapshot stylesheet centres every flex child. Override that
-   legacy rule so the semantic score graphic spans the card and its pale-blue
-   scale remains visible between the minimum and maximum values. */
-#scoreTable #score-snapshot .card {
-  align-items: stretch;
-  justify-content: flex-start;
-}
-
-#scoreTable #score-snapshot .score-graphic,
-#scoreTable #score-snapshot .score-scale {
-  width: 100%;
-}
-
-#scoreTable #score-snapshot .card-title {
-  margin: 0 0 6px;
-  padding: 5px 4px;
-  font-size: 11px;
-  line-height: 1.2;
-}
-
-#scoreTable #score-snapshot .score-label {
-  top: 0;
-  bottom: auto;
-  font-size: 10px;
-}
-
-#scoreTable #score-snapshot .percentile {
-  min-height: 29px;
-  margin: 5px 0 0;
-  font-size: 10px;
-  line-height: 1.15;
-}
+.ereg-footer { padding: 22px 24px; border-top: 1px solid #d7d7d7; color: #35353a; font-size: 14px; text-align: center; }
+.footer-links { margin-bottom: 10px; }
+.footer-links a { padding: 0 10px; color: #35353a; text-decoration: underline; }
+.footer-links a + a { border-left: 1px solid #c9c9cc; }
+.ereg-footer p { max-width: 780px; margin: 0 auto; }
 
 @media (max-width: 767px) {
-  html,
-  body {
-    overflow-x: hidden;
-  }
+  .ereg-nav { min-height: 67px; padding: 12px 16px; }
+  .program-logo img { width: 106px; }
+  .ereg-nav-links { gap: 12px; }
+  .ereg-nav-links a { min-height: auto; padding: 0; font-size: 13px; }
+  .ereg-nav-links a + a { border-left: 0; }
+  .ereg-nav-links a:nth-child(-n+2) { display: none; }
+  .score-page { width: min(100% - 24px, 1080px); margin-top: 26px; }
+  .score-page-heading { display: block; margin-bottom: 21px; }
+  .score-page-heading h1 { margin-bottom: 15px; font-size: 31px; }
+  .download-button { width: 100%; min-height: 44px; }
+  .score-report { padding: 26px 14px 32px; }
+  .report-document-header { min-height: 52px; gap: 14px; }
+  .report-document-header img { width: 86px; }
+  .report-document-header h2 { font-size: 15px; }
+  .report-document-header p { margin-top: 5px; font-size: 10px; }
+  .orange-rule { margin: 10px 0 17px; }
+  .identity-grid { grid-template-columns: 1fr; gap: 20px; }
+  .person-details h3 { font-size: 17px; }
+  .person-details dl div { display: block; padding: 3px 0; border-bottom: 1px solid #c9e2ed; }
+  .person-details dd { margin-left: 0; }
+  .test-taker-photo { width: 132px; height: 100px; }
+  .test-details { margin: 24px 0 31px; }
+  .test-details p:first-child { font-size: 16px; }
+  .score-overview > h2, .score-history > h2, .recipients > h2, .score-information > h2 { padding: 7px 9px; font-size: 16px; }
+  .score-cards { min-width: 720px; }
+  .score-card { min-height: 226px; }
+  .score-card h3 { font-size: 14px; }
+  .score-card-body { min-height: 151px; }
+  .score-label { font-size: 12px; }
+  .score-history > h3, .recipient-section h3 { margin-left: 0; font-size: 17px; }
+  .subject-heading { margin-top: 42px !important; }
+  .score-history > p { margin: 17px 0 42px; }
+  .score-information { margin-top: 50px; }
+  .policy-block { margin: 25px 0 0; }
+  .policy-block h3 { font-size: 16px; }
+  .policy-block p { font-size: 15px; }
+  .report-actions { margin: 26px 0 34px; }
+  .button { flex: 1; min-width: 0; padding: 10px 8px; font-size: 14px; }
+  .ereg-footer { padding: 20px 16px; font-size: 13px; }
+  .footer-links a { display: inline-block; margin: 3px 0; padding: 0 7px; }
+}
 
-  #contentMain.container {
-    width: 100%;
-    padding-right: 12px;
-    padding-left: 12px;
-  }
-
-  #scoreTable > h1 {
-    margin: 0 0 12px;
-    font-size: 26px;
-    line-height: 1.15;
-  }
-
-  #scoreTable > div[align="left"] {
-    padding-left: 0 !important;
-    margin-bottom: 14px;
-  }
-
-  #scoreTable .score-report-download {
-    width: 100%;
-    min-height: 44px;
-  }
-
-  #scoreTable .report-scroll {
-    margin-bottom: 14px;
-    border-radius: 2px;
-  }
+@media (max-width: 380px) {
+  .ereg-nav-links { gap: 8px; }
+  .ereg-nav-links a { font-size: 12px; }
+  .score-page-heading h1 { font-size: 29px; }
+  .report-actions { gap: 9px; }
 }

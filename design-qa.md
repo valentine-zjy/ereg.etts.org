@@ -1,44 +1,58 @@
-# Design QA — ETS sign-in page
+# Design QA — GRE Test Taker Score Report
 
 ## Comparison target
 
-- Source visual truth: `C:\Users\Suxia\AppData\Local\Temp\codex-clipboard-7cb0fd91-092f-4f91-b292-42a0b4fb3250.png`
-- Implementation screenshot: `C:\Users\Suxia\AppData\Local\Temp\ets-login-desktop-release.png`
-- Route and state: `/idaas.ets.org/u/login.html`, desktop initial state, no input focused, empty fields, disabled Continue button.
-- Source pixels: `2145 × 1344`; implementation pixels: `2145 × 1344`.
-- CSS viewport: `1430 × 896`; device scale factor: `1.5` for both the normalized source comparison and implementation capture. No crop, browser chrome, or density adjustment was used.
+- Source visual truth: `C:\Users\Suxia\AppData\Local\Temp\ets-score-report-pdf-audit\page-1.png`, rendered from the approved user-provided three-page PDF.
+- Implementation evidence: `C:\Users\Suxia\AppData\Local\Temp\score-report-1440-final-top.png` and `C:\Users\Suxia\AppData\Local\Temp\score-report-390-final-top.png`.
+- Direct comparison artifact: `C:\Users\Suxia\AppData\Local\Temp\score-report-desktop-comparison.png`. It places matched report-body crops from the PDF and the rendered implementation side by side; browser navigation and the page-level PDF download control are intentionally excluded from that normalized comparison.
+- Route and state: `/ereg/scorereports/ensrGRIScorereport/core.html`, initial report state; the source PDF is the print-report state and the browser implementation adds the approved eReg navigation and download control.
+- Desktop capture: `1440 × 1200` CSS pixels at device scale factor `1`.
+- Mobile capture: `390 × 844` CSS pixels at device scale factor `1`.
+- PDF source and browser capture differ in page dimensions, so each report body was cropped to its content edges and scaled to an equal `700px` comparison width. No content was stretched non-proportionally.
 
 ## Full-view comparison evidence
 
-The source image and `ets-login-desktop-release.png` were opened together in one visual comparison input. The logo, teal page field, top Help/Create Account navigation, white sign-in panel, form geometry, disabled-button state, recovery links, and footer align with the source at the matched density.
+The approved PDF and final desktop report body were reviewed in the combined comparison artifact. The report masthead, orange divider, test-taker data, photo, test details, purple section bars, brick-red score headers, pale-blue scales, score markers, percentiles, history table, and recipient-table hierarchy match the approved source. The implementation preserves the required website-level title and PDF download button outside the report body.
 
 ## Focused-region comparison evidence
 
-The form panel was readable in the full-view comparison, including the display font, two field outlines, password-eye asset, and recovery links; a separate crop was not needed. The implementation uses the copied ETS logo, password-eye asset, and locally hosted ETS font files rather than hand-drawn substitutions.
+- **Report masthead and personal-information block:** the final capture includes the GRE logo, report title, non-transmission note, divider, exact personal fields, photo, latest-test data, and print date.
+- **Score cards and history table:** the three score values, score ranges, markers, percentile ranks, and history cells match the PDF data and visual hierarchy. The pale-blue range bars are present below each score marker.
+- **Mobile score and table regions:** `C:\Users\Suxia\AppData\Local\Temp\score-report-390-scrolled-cdp.png` confirms the score cards and wide tables scroll only within their own visible regions while the document itself remains fixed to the phone width.
 
 ## Responsive and interaction checks
 
-- Mobile implementation evidence: `C:\Users\Suxia\AppData\Local\Temp\ets-login-mobile-release.png` at `390 × 844` CSS pixels, device scale factor `1`.
-- Mobile document overflow: `0px`; sign-in panel width: `350px` inside the `390px` viewport.
-- Empty initial state keeps Continue disabled.
-- Entering `visitor@example.com` enables Continue and routes to `/ereg/scorereports/ensrGRIScorereport/core.html` without a password.
-- Password visibility toggle changes the field from `password` to `text`.
-- Password content is not stored or sent by the static routing script.
-- Browser console was checked. The untouched initial state had no console errors. The source snapshot still attempts a nonessential third-party analytics beacon, which may be aborted by the browser; it has no visible or functional effect on this page.
+Browser-rendered measurements were taken in Chrome DevTools Protocol after emulating each viewport:
+
+| Viewport | Root width | Root scroll width | Result |
+| --- | ---: | ---: | --- |
+| 1440px | 1425px | 1425px | No page-level horizontal overflow |
+| 768px | 753px | 753px | No page-level horizontal overflow |
+| 390px | 375px | 375px | No page-level horizontal overflow |
+| 360px | 345px | 345px | No page-level horizontal overflow |
+
+- At `390px`, the score cards expose `720px` of scrollable content within a `319px` local viewport; history and recipient tables expose `760px` and `820px` of content within local `321px` viewports.
+- Setting all three local scroll positions to `156px` succeeded while the document width remained `375px`; this was also captured in the mobile scrolled screenshot.
+- The download anchor targets `/images/5RGB62EB.pdf` with the filename `GRE_Score_Report_5RGB62EB.pdf`.
+- The copied PDF SHA-256 is `C37A5988D97F93289173BF5C6DAB0C12746446DA86E38399E4969775737C1ADD`, matching the user-provided source PDF.
+- The rendered report loads one local script only. Chrome resource inspection found no external analytics, marketing, or profile-reporting requests, and no console errors were observed.
+- `Back` returns to the local eReg home route; `Request Score Review` remains a visual-only button and does not create an external request.
 
 ## Comparison history
 
-1. **[P1] Login controls differed from the reference.** The prior static routing presentation removed the password field and recovery links. It was replaced with the source's two-field sign-in layout, the header registration entry, and the visible recovery links, while retaining local-only routing.
-2. **[P2] Initial username focus differed from the reference.** `ets-login-local-normalized.png` showed the floating/focused username label. The static routing script now removes that inherited automatic focus after the source snapshot initializes. The final desktop capture shows the unfocused placeholder state.
-3. **[P2] Phone viewport had 5px horizontal overflow.** The first mobile capture showed fixed-width prompt descendants extending past the viewport. The mobile rule now scopes `--prompt-width` to `calc(100vw - 40px)`. The release capture reports `0px` overflow with no out-of-bounds elements.
+1. **[P1] Entire report horizontally scrolled on phones.** The earlier generated report had a single fixed-width report wrapper. It was replaced with semantic report sections and independent scroll regions for the score cards and wide tables. Post-fix Chrome measurements at 360px and 390px show root scroll width equal to root client width.
+2. **[P1] Download asset did not match the supplied PDF.** The previous download pointed to a different PDF. The supplied `5RGB62EB.pdf` is now copied unchanged into `images/`, referenced by the report, and given an attachment response header in `vercel.json`. Hash verification passed.
+3. **[P1] Print date and PDF masthead were missing from the rebuilt report data.** The final report adds the GRE logo, source-report title/note, and print date. The final desktop comparison artifact confirms those elements with the source PDF.
+4. **[P2] Static report loaded third-party tracking and identity variables.** The rebuilt route uses only local report assets and a local render script. Final Chrome resource inspection reports no external resources and no console errors.
 
 ## Required fidelity surfaces
 
-- **Fonts and typography:** Local Speckless and Beausite font files match the display/body hierarchy and avoid runtime font CORS failures.
-- **Spacing and layout rhythm:** The desktop card, content gutters, vertical gaps, footer alignment, and 15px panel radius match the reference at the normalized viewport.
-- **Colors and tokens:** The source teal field, white panel, dark text, field border, and muted disabled-button colors are retained.
-- **Image quality and asset fidelity:** The ETS logo is the copied source SVG; the existing source password-eye mark is preserved. No CSS or handcrafted icon replacement is used.
-- **Copy and content:** The visible initial-state copy matches the reference, with no public demo wording.
+- **Fonts and typography:** The local Beausite Classic and Speckless fonts retain the eReg display and navigation hierarchy; report typography uses the compact Arial-like print-report treatment. Headings, field labels, scale labels, and table cells remain readable without truncation at all tested widths.
+- **Spacing and layout rhythm:** Desktop uses a bounded report page with the source's divider, photo/data split, score-card spacing, and section rhythm. Phone widths stack identity information and retain readable vertical spacing.
+- **Colors and tokens:** Purple section bars, brick-red headers/markers, orange dividers, pale-blue score bars, muted table fills, and white document surfaces are expressed as scoped report tokens.
+- **Image quality and asset fidelity:** The supplied test-taker photo and copied GRE source logo are used directly. No substitute photo, generated image, custom SVG, or CSS-drawn brand asset was introduced.
+- **Copy and content:** Report labels, personal data, test data, scores, percentile ranks, history, recipient headings, policy text, and contact information were transcribed from the approved report source. No demo-site wording is present.
+- **Accessibility and states:** Semantic headings, table headers, image alt text, skip navigation, focus indicators, keyboard-focusable scroll regions, and explicit local scroll affordances are included. The primary download and back navigation work; the score-review control is intentionally visual-only as scoped.
 
 ## Findings
 
@@ -46,6 +60,6 @@ No actionable P0, P1, or P2 findings remain.
 
 ## Follow-up polish
 
-- [P3] The source snapshot includes a nonessential third-party analytics beacon. It can be removed in a later cleanup if an entirely network-quiet static page is required.
+- [P3] The browser report is intentionally a responsive web representation rather than a page-for-page PDF renderer, so its policy sections flow continuously instead of forcing PDF page breaks.
 
 final result: passed
