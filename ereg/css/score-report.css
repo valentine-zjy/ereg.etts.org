@@ -275,6 +275,19 @@
   border-left: 0;
 }
 
+/* The generated snapshot stylesheet centres every flex child. Override that
+   legacy rule so the semantic score graphic spans the card and its pale-blue
+   scale remains visible between the minimum and maximum values. */
+#scoreTable #score-snapshot .card {
+  align-items: stretch;
+  justify-content: flex-start;
+}
+
+#scoreTable #score-snapshot .score-graphic,
+#scoreTable #score-snapshot .score-scale {
+  width: 100%;
+}
+
 #scoreTable #score-snapshot .card-title {
   margin: 0 0 6px;
   padding: 5px 4px;
