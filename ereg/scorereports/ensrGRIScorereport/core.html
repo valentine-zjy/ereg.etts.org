@@ -5,44 +5,54 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="GRE Test Taker Score Report">
   <title>GRE Score Report</title>
+  <link rel="stylesheet" href="../../framework/css/lib/bootstrap/bootstrap-3.3.1.min.css">
+  <link rel="stylesheet" href="../../css/ereg-common.css">
+  <link rel="stylesheet" href="../../css/navigation.css">
+  <link rel="stylesheet" href="../../css/GRI.css">
   <link rel="stylesheet" href="../../css/score-report.css">
 </head>
 <body>
   <a class="skip-link" href="#score-report-main">Skip to main content</a>
 
-  <header class="ereg-header" role="banner">
-    <nav class="ereg-nav" aria-label="GRE account navigation">
-      <a class="program-logo" href="../../home.html" aria-label="GRE home">
-        <img src="../../img/GRI-header-logo.svg" alt="GRE">
-      </a>
-      <div class="ereg-nav-links">
-        <a href="../../home.html">Home</a>
-        <a href="../../home.html">Cart</a>
-        <a href="https://www.ets.org/gre/contact" target="_blank" rel="noreferrer">Help</a>
-        <a href="../../home.html">My account</a>
+  <header id="template-header" class="header" role="banner">
+    <nav class="nav" aria-label="GRE account navigation">
+      <div class="nav-container">
+        <div class="child child1">
+          <a class="programLogo" href="../../home.html" aria-label="GRE home"><img src="../../img/GRI-header-logo.svg" alt="GRE"></a>
+        </div>
+        <div class="child nav-icon"><a href="../../home.html" aria-label="Home"><svg aria-hidden="true" viewBox="0 0 30 30"><path d="M18.3071 27.7638V20.3465C18.3071 20.0186 18.1768 19.7042 17.945 19.4723C17.7132 19.2405 17.3987 19.1102 17.0709 19.1102H12.126C11.7981 19.1102 11.4837 19.2405 11.2518 19.4723C11.02 19.7042 10.8898 20.0186 10.8898 20.3465V27.7638C10.8898 28.0916 10.7595 28.4061 10.5277 28.6379C10.2958 28.8698 9.98141 29 9.65354 29H2.23622C1.90835 29 1.59392 28.8698 1.36208 28.6379C1.13024 28.4061 1 28.0916 1 27.7638V13.47C1.00277 13.2989 1.03974 13.1301 1.10874 12.9735C1.17774 12.8169 1.27737 12.6758 1.40177 12.5583L13.764 1.32412C13.9919 1.11563 14.2896 1 14.5984 1C14.9073 1 15.205 1.11563 15.4329 1.32412L27.7951 12.5583C27.9195 12.6758 28.0191 12.8169 28.0881 12.9735C28.1571 13.1301 28.1941 13.2989 28.1969 13.47V27.7638C28.1969 28.0916 28.0666 28.4061 27.8348 28.6379C27.6029 28.8698 27.2885 29 26.9606 29H19.5433C19.2154 29 18.901 28.8698 18.6692 28.6379C18.4373 28.4061 18.3071 28.0916 18.3071 27.7638Z"/></svg></a></div>
+        <div class="child nav-icon"><a href="../../home.html" aria-label="Cart"><svg aria-hidden="true" viewBox="0 0 32 29"><path fill="currentColor" d="M11.08 29C12.3171 29 13.32 27.9971 13.32 26.76C13.32 25.5229 12.3171 24.52 11.08 24.52C9.84285 24.52 8.83997 25.5229 8.83997 26.76C8.83997 27.9971 9.84285 29 11.08 29ZM25.64 29C26.8771 29 27.88 27.9971 27.88 26.76C27.88 25.5229 26.8771 24.52 25.64 24.52C24.4029 24.52 23.4 25.5229 23.4 26.76C23.4 27.9971 24.4029 29 25.64 29Z"/><path d="M5.802 6.6H30.918L27.222 19.536C27.0901 20.0055 26.8077 20.4187 26.4182 20.7121C26.0287 21.0055 25.5536 21.1628 25.066 21.16H11.654C11.1664 21.1628 10.6913 21.0055 10.3018 20.7121C9.91226 20.4187 9.62987 20.0055 9.498 19.536L4.43 1.812C4.36303 1.57786 4.22156 1.37192 4.02704 1.2254C3.83252 1.07887 3.59553 0.999744 3.352 1H1"/></svg></a></div>
+        <div class="child nav-icon"><a href="https://www.ets.org/gre/contact" target="_blank" rel="noreferrer" aria-label="Help"><svg aria-hidden="true" viewBox="0 0 33 30"><path d="M2.47126 16.8646C1.16504 14.6639 0.707197 12.062 1.18372 9.54765C1.66025 7.03327 3.03835 4.77937 5.05921 3.20924C7.08007 1.63912 9.60465 0.860806 12.1588 1.02048C14.7129 1.18015 17.1209 2.26682 18.9305 4.0764C20.7401 5.88598 21.8268 8.29397 21.9864 10.8481C22.1461 13.4023 21.3678 15.9268 19.7977 17.9477C18.2275 19.9686 15.9736 21.3467 13.4593 21.8232C10.9449 22.2997 8.34303 21.8419 6.14236 20.5357L2.51496 21.57C2.3655 21.612 2.20755 21.6135 2.05734 21.5742C1.90714 21.5349 1.7701 21.4564 1.66032 21.3466C1.55054 21.2368 1.47198 21.0998 1.43272 20.9496C1.39346 20.7994 1.39492 20.6414 1.43694 20.492L2.47126 16.8646Z"/><path d="M10.9207 21.9924C11.4341 23.4563 12.2663 24.7878 13.3571 25.8908C14.4479 26.9938 15.7701 27.8408 17.2281 28.3705C18.6862 28.9002 20.2437 29.0994 21.7881 28.9537C23.3325 28.8081 24.8253 28.3212 26.1587 27.5282L29.7861 28.5625C29.9355 28.6046 30.0935 28.606 30.2437 28.5668C30.3939 28.5275 30.5309 28.4489 30.6407 28.3392C30.7505 28.2294 30.829 28.0923 30.8683 27.9421C30.9076 27.7919 30.9061 27.634 30.8641 27.4845L29.8298 23.8571C30.7532 22.3071 31.2605 20.5449 31.3027 18.7411C31.3449 16.9374 30.9204 15.1534 30.0705 13.5619C29.2205 11.9705 27.9739 10.6255 26.4514 9.65745C24.9289 8.68938 23.1821 8.13099 21.3804 8.03641"/></svg></a></div>
+        <div class="child account-link"><a href="../../home.html"><svg aria-hidden="true" viewBox="0 0 30 30"><circle cx="15" cy="15" r="14"/><circle cx="15" cy="13.8333" r="5.8333"/><path d="M5.63745 25.4125C6.51524 23.6835 7.85464 22.2314 9.5072 21.217C11.1598 20.2027 13.0609 19.6658 15 19.6658C16.939 19.6658 18.8401 20.2027 20.4927 21.217C22.1453 22.2314 23.4847 23.6835 24.3624 25.4125"/></svg><span>My account<span class="caret"></span></span></a></div>
       </div>
     </nav>
   </header>
 
-  <main id="score-report-main" class="score-page">
-    <div class="score-page-heading">
-      <h1>Test Taker Score Report</h1>
-      <a class="download-button" href="../../../images/5RGB62EB.pdf" download="GRE_Score_Report_5RGB62EB.pdf">Download PDF Report</a>
-    </div>
-    <article id="score-report" class="score-report" aria-label="GRE Test Taker Score Report"></article>
-    <div class="report-actions">
-      <a class="button button-secondary" href="../../home.html">Back</a>
-      <button class="button button-primary" type="button">Request Score Review</button>
-    </div>
-  </main>
+  <div id="template-main-wrapper">
+    <main id="score-report-main" class="container top-margin score-page" role="main">
+      <div class="content-wrapper" id="scoreTable">
+        <div class="score-page-heading">
+          <h1>Test Taker Score Report</h1>
+          <a class="btn btn-primary download-button" href="../../../images/5RGB62EB.pdf" download="GRE_Score_Report_5RGB62EB.pdf">Download PDF Report</a>
+        </div>
+        <article id="score-report" class="score-report" aria-label="GRE Test Taker Score Report"></article>
+        <div class="clearfix button-bar report-actions">
+          <a class="btn btn-eReg button button-secondary" href="../../home.html">Back</a>
+          <button class="btn btn-primary button button-primary" type="button">Request Score Review</button>
+        </div>
+      </div>
+    </main>
+  </div>
 
-  <footer class="ereg-footer" role="contentinfo">
-    <div class="footer-links">
-      <a href="https://www.ets.org/gre/contact" target="_blank" rel="noreferrer">Contact Us</a>
-      <a href="https://www.ets.org/legal" target="_blank" rel="noreferrer">Legal</a>
-      <a href="https://www.ets.org/legal/privacy" target="_blank" rel="noreferrer">Privacy &amp; Security</a>
-    </div>
-    <p>Copyright © 2026 by Educational Testing Service. All rights reserved. All trademarks are the property of their respective owners.</p>
+  <footer id="template-footer" class="ereg-footer" role="contentinfo">
+    <div class="footer-info"><div class="footer-list">
+      <ul class="list-inline footer-links">
+        <li><a href="https://www.ets.org/gre/contact" target="_blank" rel="noreferrer">Contact Us</a></li>
+        <li><a href="https://www.ets.org/legal" target="_blank" rel="noreferrer">Legal</a></li>
+        <li><a href="https://www.ets.org/legal/privacy" target="_blank" rel="noreferrer">Privacy &amp; Security</a></li>
+      </ul>
+      <p class="footer-legal">Copyright © 2026 by Educational Testing Service. All rights reserved. All trademarks are the property of their respective owners.</p>
+    </div></div>
   </footer>
 
   <script src="../../js/score-report.js"></script>
