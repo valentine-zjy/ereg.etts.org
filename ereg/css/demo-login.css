@@ -1,4 +1,15 @@
-/* Visual adjustments for the public, static demo sign-in page. */
-.demo-login-hidden {
+/* The sign-up option is represented by the Create Account link in the header. */
+.static-login-hidden {
   display: none !important;
+}
+
+@media (max-width: 480px) {
+  :root {
+    --prompt-width: calc(100vw - 40px);
+  }
+
+  #widget-wrapper {
+    max-width: 100%;
+    width: 100%;
+  }
 }

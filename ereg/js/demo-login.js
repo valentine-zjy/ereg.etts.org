@@ -1,91 +1,86 @@
-/*
- * Static-hosting sign-in for the score-report demo.  No credentials are sent
- * anywhere: a syntactically valid email address is only stored in this
- * browser, then the visitor is taken to the public report.
- */
+/* Static sign-in routing for the publicly hosted score report. */
 (function () {
   "use strict";
 
   var reportPath = "/ereg/scorereports/ensrGRIScorereport/core.html";
+  var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-  function setupDemoLogin() {
+  function setupStaticLogin() {
     var form = document.querySelector('form[data-form-primary="true"]');
-    var email = document.getElementById("username");
+    var username = document.getElementById("username");
     var password = document.getElementById("password");
     var submitButton = document.querySelector("[data-action-button-primary=true]");
-    var emailLabel = document.getElementById("username-label");
 
-    if (!form || !email || !submitButton) return;
+    if (!form || !username || !submitButton) return;
 
-    document.documentElement.dataset.demoLogin = "true";
     form.noValidate = false;
     form.action = "";
 
-    email.type = "email";
-    email.name = "email";
-    email.inputMode = "email";
-    email.autocomplete = "email";
-    email.placeholder = "name@example.com";
-
-    if (emailLabel) {
-      emailLabel.childNodes[0].nodeValue = "电子邮件地址 ";
-    }
-
     if (password) {
-      password.value = "demo-login-bypass";
       password.required = false;
-      password.disabled = true;
+      password.disabled = false;
       password.setAttribute("aria-required", "false");
-      var passwordWrapper = password.closest(".input-wrapper");
-      if (passwordWrapper) passwordWrapper.classList.add("demo-login-hidden");
     }
 
-    var resetLink = form.querySelector(".cedda26f3");
     var signUp = document.querySelector(".ulp-alternate-action");
-    if (resetLink) resetLink.classList.add("demo-login-hidden");
-    if (signUp) signUp.classList.add("demo-login-hidden");
+    if (signUp) signUp.classList.add("static-login-hidden");
 
     function updateButton() {
-      submitButton.disabled = !email.validity.valid;
+      submitButton.disabled = !emailPattern.test(username.value.trim());
     }
 
     function updateButtonAfterOtherHandlers() {
       window.setTimeout(updateButton, 0);
     }
 
-    email.addEventListener("input", updateButtonAfterOtherHandlers);
-    email.addEventListener("change", updateButtonAfterOtherHandlers);
+    username.addEventListener("input", updateButtonAfterOtherHandlers);
+    username.addEventListener("change", updateButtonAfterOtherHandlers);
+    if (password) {
+      password.addEventListener("input", updateButtonAfterOtherHandlers);
+      password.addEventListener("change", updateButtonAfterOtherHandlers);
+    }
     updateButton();
+
+    // The provider snapshot focuses the first field after its initial paint.
+    // Keep the public entry state aligned with the untouched sign-in screen.
+    window.setTimeout(function () {
+      if (document.activeElement === username) username.blur();
+    }, 350);
 
     function continueToReport(event) {
       event.preventDefault();
       event.stopImmediatePropagation();
 
-      if (!email.validity.valid) {
-        email.reportValidity();
+      if (!emailPattern.test(username.value.trim())) {
+        username.focus();
         return;
       }
 
       try {
-        window.localStorage.setItem("gre-demo-email", email.value.trim());
+        window.localStorage.setItem("ets-login-identifier", username.value.trim());
       } catch (error) {
-        // Private browsing can disable storage; sign-in can still continue.
+        // Private browsing can disable storage; routing still works.
       }
 
       submitButton.disabled = true;
-      submitButton.textContent = "正在打开成绩报告…";
       window.location.assign(reportPath);
     }
 
-    // The captured click prevents the saved Auth0 page scripts from starting
-    // their original sign-in flow before the browser creates a submit event.
-    submitButton.addEventListener("click", continueToReport, true);
-    form.addEventListener("submit", continueToReport, true);
+    // Capture from the document so the saved provider scripts cannot submit
+    // the static snapshot to a remote authentication endpoint.
+    document.addEventListener("click", function (event) {
+      if (event.target === submitButton || submitButton.contains(event.target)) {
+        continueToReport(event);
+      }
+    }, true);
+    document.addEventListener("submit", function (event) {
+      if (event.target === form) continueToReport(event);
+    }, true);
   }
 
   if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", setupDemoLogin);
+    document.addEventListener("DOMContentLoaded", setupStaticLogin);
   } else {
-    setupDemoLogin();
+    setupStaticLogin();
   }
 }());
