@@ -3,8 +3,8 @@
 ## Comparison target
 
 - Source visual truth: `C:\Users\Suxia\AppData\Local\Temp\ets-score-report-pdf-audit\page-1.png`, rendered from the approved user-provided three-page PDF.
-- Implementation evidence: `C:\Users\Suxia\AppData\Local\Temp\score-report-1440-final-top.png` and `C:\Users\Suxia\AppData\Local\Temp\score-report-390-final-top.png`.
-- Direct comparison artifact: `C:\Users\Suxia\AppData\Local\Temp\score-report-desktop-comparison.png`. It places matched report-body crops from the PDF and the rendered implementation side by side; browser navigation and the page-level PDF download control are intentionally excluded from that normalized comparison.
+- Implementation evidence: `C:\Users\Suxia\AppData\Local\Temp\score-report-1440-arrow-final.png` and `C:\Users\Suxia\AppData\Local\Temp\score-report-390-arrow-final.png`.
+- Direct comparison artifact: `C:\Users\Suxia\AppData\Local\Temp\score-report-desktop-comparison-final.png`. It places matched report-body crops from the PDF and the rendered implementation side by side; browser navigation and the page-level PDF download control are intentionally excluded from that normalized comparison.
 - Route and state: `/ereg/scorereports/ensrGRIScorereport/core.html`, initial report state; the source PDF is the print-report state and the browser implementation adds the approved eReg navigation and download control.
 - Desktop capture: `1440 × 1200` CSS pixels at device scale factor `1`.
 - Mobile capture: `390 × 844` CSS pixels at device scale factor `1`.
@@ -16,8 +16,8 @@ The approved PDF and final desktop report body were reviewed in the combined com
 
 ## Focused-region comparison evidence
 
-- **Report masthead and personal-information block:** the final capture includes the GRE logo, report title, non-transmission note, divider, exact personal fields, photo, latest-test data, and print date.
-- **Score cards and history table:** the three score values, score ranges, markers, percentile ranks, and history cells match the PDF data and visual hierarchy. The pale-blue range bars are present below each score marker.
+- **Report masthead and personal-information block:** the final capture includes the GRE logo, report title, non-transmission note, divider, exact personal fields, photo, and latest-test data. The PDF's print-date row is intentionally omitted per the latest approved annotation.
+- **Score cards and history table:** the three score values, score ranges, markers, percentile ranks, and history cells match the PDF data and visual hierarchy. The pale-blue range bars are present below each score marker, and each value box's arrow is centered on its corresponding black marker.
 - **Mobile score and table regions:** `C:\Users\Suxia\AppData\Local\Temp\score-report-390-scrolled-cdp.png` confirms the score cards and wide tables scroll only within their own visible regions while the document itself remains fixed to the phone width.
 
 ## Responsive and interaction checks
@@ -42,7 +42,7 @@ Browser-rendered measurements were taken in Chrome DevTools Protocol after emula
 
 1. **[P1] Entire report horizontally scrolled on phones.** The earlier generated report had a single fixed-width report wrapper. It was replaced with semantic report sections and independent scroll regions for the score cards and wide tables. Post-fix Chrome measurements at 360px and 390px show root scroll width equal to root client width.
 2. **[P1] Download asset did not match the supplied PDF.** The previous download pointed to a different PDF. The supplied `5RGB62EB.pdf` is now copied unchanged into `images/`, referenced by the report, and given an attachment response header in `vercel.json`. Hash verification passed.
-3. **[P1] Print date and PDF masthead were missing from the rebuilt report data.** The final report adds the GRE logo, source-report title/note, and print date. The final desktop comparison artifact confirms those elements with the source PDF.
+3. **[P1] Score-box arrows did not meet their black scale markers.** The score box and marker were previously positioned against different-width containers. They now share one `.score-anchor` inside the scale track. Chrome measurements at desktop and 390px report `0px` difference for all three value-center/marker-center pairs.
 4. **[P2] Static report loaded third-party tracking and identity variables.** The rebuilt route uses only local report assets and a local render script. Final Chrome resource inspection reports no external resources and no console errors.
 
 ## Required fidelity surfaces
@@ -51,7 +51,7 @@ Browser-rendered measurements were taken in Chrome DevTools Protocol after emula
 - **Spacing and layout rhythm:** Desktop uses a bounded report page with the source's divider, photo/data split, score-card spacing, and section rhythm. Phone widths stack identity information and retain readable vertical spacing.
 - **Colors and tokens:** Purple section bars, brick-red headers/markers, orange dividers, pale-blue score bars, muted table fills, and white document surfaces are expressed as scoped report tokens.
 - **Image quality and asset fidelity:** The supplied test-taker photo and copied GRE source logo are used directly. No substitute photo, generated image, custom SVG, or CSS-drawn brand asset was introduced.
-- **Copy and content:** Report labels, personal data, test data, scores, percentile ranks, history, recipient headings, policy text, and contact information were transcribed from the approved report source. No demo-site wording is present.
+- **Copy and content:** Report labels, personal data, test data, scores, percentile ranks, history, recipient headings, policy text, and contact information were transcribed from the approved report source. The print-date row is deliberately excluded by the latest user instruction. No demo-site wording is present.
 - **Accessibility and states:** Semantic headings, table headers, image alt text, skip navigation, focus indicators, keyboard-focusable scroll regions, and explicit local scroll affordances are included. The primary download and back navigation work; the score-review control is intentionally visual-only as scoped.
 
 ## Findings

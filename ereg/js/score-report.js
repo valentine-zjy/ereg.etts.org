@@ -16,8 +16,7 @@
       date: "August 5, 2026",
       country: "China",
       center: "STNRPCHN - Home Edition",
-      registrationNumber: "3872463",
-      printDate: "August 14, 2026"
+      registrationNumber: "3872463"
     },
     scores: [
       { title: "Verbal Reasoning", scoreLabel: "Your Scaled Score:", value: "159", min: "130", max: "170", percentile: "80th", position: "72.5%" },
@@ -86,11 +85,9 @@
       '<section class="score-card" style="--score-position:' + escapeHtml(score.position) + '">' +
         '<h3>' + escapeHtml(score.title) + '</h3>' +
         '<div class="score-card-body">' +
-          '<span class="score-label">' + escapeHtml(score.scoreLabel) + '</span>' +
-          '<strong class="score-value">' + escapeHtml(score.value) + '</strong>' +
           '<div class="score-scale" aria-label="Score range ' + escapeHtml(score.min) + ' to ' + escapeHtml(score.max) + '">' +
             '<span>' + escapeHtml(score.min) + '</span>' +
-            '<span class="scale-track"><span class="scale-marker"></span></span>' +
+            '<span class="scale-track"><span class="score-anchor"><span class="score-label">' + escapeHtml(score.scoreLabel) + '</span><strong class="score-value">' + escapeHtml(score.value) + '</strong><span class="scale-marker"></span></span></span>' +
             '<span>' + escapeHtml(score.max) + '</span>' +
           '</div>' +
         '</div>' +
@@ -152,7 +149,6 @@
           '<p><strong>Test Center Country:</strong> ' + escapeHtml(data.test.country) + '</p>' +
           '<p><strong>Test Center:</strong> ' + escapeHtml(data.test.center) + '</p>' +
           '<p><strong>Registration Number:</strong> ' + escapeHtml(data.test.registrationNumber) + '</p>' +
-          '<p><strong>Print Date:</strong> ' + escapeHtml(data.test.printDate) + '</p>' +
         '</div>' +
       '</header>' +
       '<section class="score-overview">' +

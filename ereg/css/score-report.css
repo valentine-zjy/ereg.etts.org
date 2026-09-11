@@ -84,14 +84,15 @@ a:focus-visible, button:focus-visible, [tabindex="0"]:focus-visible { outline: 3
 .score-card { position: relative; display: flex; min-width: 0; min-height: 239px; padding: 0 7px; flex-direction: column; text-align: center; }
 .score-card + .score-card::before { position: absolute; top: 0; right: 100%; bottom: 37px; width: 1px; background: var(--ets-orange); content: ""; }
 .score-card h3 { min-height: 29px; margin: 0; padding: 5px 3px; background: var(--ets-brick); color: #fff; font-size: 15px; font-weight: 700; line-height: 1.25; }
-.score-card-body { position: relative; flex: 1; min-height: 163px; padding: 43px 14px 0; }
-.score-label, .score-value { position: absolute; left: clamp(36px, var(--score-position), calc(100% - 36px)); transform: translateX(-50%); }
-.score-label { top: 11px; width: 120px; font-size: 13px; font-weight: 700; }
-.score-value { top: 43px; min-width: 62px; padding: 7px 10px; border-radius: 7px; background: var(--ets-brick); color: #fff; font-size: 22px; line-height: 1; }
-.score-value::after { position: absolute; bottom: -9px; left: 50%; width: 0; height: 0; border: 9px solid transparent; border-top-color: var(--ets-brick); border-bottom: 0; transform: translateX(-50%); content: ""; }
-.score-scale { display: grid; grid-template-columns: 28px minmax(0, 1fr) 28px; align-items: center; gap: 4px; padding-top: 52px; color: #555; font-size: 12px; }
+.score-card-body { position: relative; flex: 1; min-height: 163px; padding: 0 14px; }
+.score-scale { display: grid; grid-template-columns: 28px minmax(0, 1fr) 28px; align-items: center; gap: 4px; padding-top: 95px; color: #555; font-size: 12px; }
 .scale-track { position: relative; height: 16px; background: var(--ets-blue); }
-.scale-marker { position: absolute; top: -14px; bottom: -14px; left: clamp(1px, var(--score-position), calc(100% - 1px)); width: 2px; transform: translateX(-50%); background: #252525; }
+.score-anchor { position: absolute; top: 0; bottom: 0; left: clamp(1px, var(--score-position), calc(100% - 1px)); width: 0; }
+.score-label, .score-value { position: absolute; left: 50%; transform: translateX(-50%); }
+.score-label { bottom: 69px; width: 120px; font-size: 13px; font-weight: 700; }
+.score-value { bottom: 16px; min-width: 62px; padding: 7px 10px; border-radius: 7px; background: var(--ets-brick); color: #fff; font-size: 22px; line-height: 1; }
+.score-value::after { position: absolute; bottom: -9px; left: 50%; width: 0; height: 0; border: 9px solid transparent; border-top-color: var(--ets-brick); border-bottom: 0; transform: translateX(-50%); content: ""; }
+.scale-marker { position: absolute; top: -9px; bottom: -14px; left: 50%; width: 2px; transform: translateX(-50%); background: #252525; }
 .percentile { min-height: 32px; margin: 5px 0 0; font-size: 14px; line-height: 1.15; }
 .percentile strong { display: block; }
 
