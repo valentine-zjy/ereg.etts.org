@@ -1,0 +1,6 @@
+# Local dependencies, logs and editor/system files
+node_modules/
+*.log
+.DS_Store
+Thumbs.db
+.vercel/

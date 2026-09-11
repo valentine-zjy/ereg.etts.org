@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Your Scores for the General Test</title>
+	<style type="text/css">
+		/* ===== 基础 ===== */
+		* { box-sizing: border-box; }
+		html, body { margin: 0; padding: 0; }
+		body {
+			font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+			color: #212121;
+			background: #ffffff;
+			padding: 18px 26px;
+			font-size: 16px;
+		}
+
+		/* ===== 深紫色横幅 ===== */
+		.banner {
+			background: #602b4c;
+			color: #ffffff;
+			font-weight: 700;
+			font-size: 22px;
+			padding: 12px 20px;
+			margin-bottom: 16px;
+		}
+
+		/* ===== 橙框三列成绩卡容器 ===== */
+		.score-cards {
+			border: 2px solid #e8a77d;
+			padding: 14px 14px 6px 14px;
+			margin-bottom: 22px;
+		}
+		.cards-grid {
+			display: flex;
+			gap: 0;
+		}
+		.card {
+			flex: 1 1 0;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			text-align: center;
+			padding: 0 8px;
+		}
+		.card + .card {
+			border-left: 2px solid #e8a77d;
+		}
+
+		/* 卡头（橙红） */
+		.card-title {
+			background: #b04b2f;
+			color: #ffffff;
+			font-weight: 700;
+			font-size: 20px;
+			width: 100%;
+			padding: 8px 0;
+			margin-bottom: 14px;
+		}
+
+		/* 提示文案 */
+		.score-label {
+			font-weight: 700;
+			font-size: 15px;
+			line-height: 1.3;
+			margin-bottom: 10px;
+		}
+
+		/* 大分数块 */
+		.score-box {
+			background: #b04b2f;
+			color: #ffffff;
+			font-weight: 700;
+			font-size: 30px;
+			min-width: 96px;
+			padding: 8px 0;
+			margin-bottom: 6px;
+		}
+
+		/* 分数条 + 刻度 */
+		.scale {
+			display: flex;
+			align-items: center;
+			width: 100%;
+			padding: 0 14px;
+			position: relative;
+			margin-bottom: 8px;
+		}
+		.scale .min, .scale .max {
+			font-size: 14px;
+			color: #555;
+			padding: 0 8px;
+			white-space: nowrap;
+		}
+		.bar-wrap {
+			flex: 1;
+			position: relative;
+			height: 30px;
+		}
+		.bar {
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+			height: 24px;
+			width: 100%;
+			background: #d0e3f4;
+		}
+		/* 标记线（定位在分数处） */
+		.marker {
+			position: absolute;
+			top: 50%;
+			transform: translate(-50%, -50%);
+			height: 42px;
+			width: 2px;
+			background: #212121;
+		}
+
+		/* 百分位 */
+		.percentile {
+			font-weight: 700;
+			font-size: 17px;
+			line-height: 1.25;
+			margin-top: 2px;
+			margin-bottom: 8px;
+		}
+		.sub {
+			display: block;
+		}
+
+		/* ===== Your Test Score History 横幅 ===== */
+		.banner.history-banner { margin-top: 6px; }
+
+		/* ===== General Test Scores 标题 ===== */
+		.section-title {
+			font-weight: 700;
+			font-size: 19px;
+			color: #3b2a3a;
+			margin: 18px 0 12px 0;
+		}
+
+		/* ===== 明细表 ===== */
+		table.history {
+			border-collapse: collapse;
+			width: 100%;
+			font-size: 15px;
+		}
+		table.history th, table.history td {
+			border: 1px solid #d9d9d9;
+			padding: 9px 12px;
+			text-align: center;
+			font-weight: 700;
+		}
+		/* 第一组表头（科目，红底） */
+		table.history thead tr.group th {
+			background: #b04b2f;
+			color: #ffffff;
+			font-size: 16px;
+		}
+		/* 顶左空单元格（Test Date 列上方，无内容） */
+		table.history thead tr.group th.blank {
+			background: #ffffff;
+			border: none;
+		}
+		/* 第二组表头（Test Date 灰粉 + 子列白） */
+		table.history thead tr.sub th.first-col {
+			background: #f4e4e6;
+			color: #4b2a36;
+			text-align: left;
+		}
+		table.history thead tr.sub th.sub-col {
+			background: #f7f7f7;
+			color: #333;
+		}
+		/* 数据行 */
+		table.history tbody td {
+			font-weight: 700;
+			color: #333;
+			background: #ffffff;
+		}
+		table.history tbody td.first-col {
+			text-align: left;
+		}
+	</style>
+</head>
+<body>
+
+	<!-- 顶部横幅 -->
+	<div class="banner">Your Scores for the General Test Taken on August 5, 2026</div>
+
+	<!-- 三列成绩卡 -->
+	<div class="score-cards">
+		<div class="cards-grid">
+
+			<!-- Verbal Reasoning -->
+			<div class="card">
+				<div class="card-title">Verbal Reasoning</div>
+				<div class="score-label">Your Scaled<br>Score:</div>
+				<div class="score-box">159</div>
+				<div class="scale">
+					<span class="min">130</span>
+					<div class="bar-wrap">
+						<div class="bar"></div>
+						<div class="marker" style="left: 72.5%;"></div>
+					</div>
+					<span class="max">170</span>
+				</div>
+				<div class="percentile">80th<span class="sub">Percentile</span></div>
+			</div>
+
+			<!-- Quantitative Reasoning -->
+			<div class="card">
+				<div class="card-title">Quantitative Reasoning</div>
+				<div class="score-label">Your Scaled<br>Score:</div>
+				<div class="score-box">170</div>
+				<div class="scale">
+					<span class="min">130</span>
+					<div class="bar-wrap">
+						<div class="bar"></div>
+						<div class="marker" style="left: 100%;"></div>
+					</div>
+					<span class="max">170</span>
+				</div>
+				<div class="percentile">91st<span class="sub">Percentile</span></div>
+			</div>
+
+			<!-- Analytical Writing -->
+			<div class="card">
+				<div class="card-title">Analytical Writing</div>
+				<div class="score-label">Your<br>Score:</div>
+				<div class="score-box">3.0</div>
+				<div class="scale">
+					<span class="min">0</span>
+					<div class="bar-wrap">
+						<div class="bar"></div>
+						<div class="marker" style="left: 50%;"></div>
+					</div>
+					<span class="max">6</span>
+				</div>
+				<div class="percentile">17th<span class="sub">Percentile</span></div>
+			</div>
+
+		</div>
+	</div>
+
+
+</body>
+</html>
