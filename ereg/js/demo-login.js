@@ -26,7 +26,6 @@
     email.inputMode = "email";
     email.autocomplete = "email";
     email.placeholder = "name@example.com";
-    email.setAttribute("aria-describedby", "demo-login-note");
 
     if (emailLabel) {
       emailLabel.childNodes[0].nodeValue = "电子邮件地址 ";
@@ -45,12 +44,6 @@
     var signUp = document.querySelector(".ulp-alternate-action");
     if (resetLink) resetLink.classList.add("demo-login-hidden");
     if (signUp) signUp.classList.add("demo-login-hidden");
-
-    var note = document.createElement("p");
-    note.id = "demo-login-note";
-    note.className = "demo-login-note";
-    note.textContent = "演示站点无需验证：输入任意有效邮箱即可查看成绩报告。";
-    email.closest(".input-wrapper").insertAdjacentElement("afterend", note);
 
     function updateButton() {
       submitButton.disabled = !email.validity.valid;

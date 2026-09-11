@@ -2,10 +2,3 @@
 .demo-login-hidden {
   display: none !important;
 }
-
-.demo-login-note {
-  margin: 8px 0 18px;
-  color: #4a4a4a;
-  font-size: 0.875rem;
-  line-height: 1.45;
-}
