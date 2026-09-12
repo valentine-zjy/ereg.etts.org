@@ -44,15 +44,15 @@
 .score-panels {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    height: 170px;
-    padding: 9px 6px;
-    border: 1.3px solid #b4560a
+    height: 178px;
+    padding: 9px 6px 19px;
+    border: 1.3px solid #94813f
 }
 
 .score-panel {
     min-width: 0;
     padding: 0 6px;
-    border-right: 1.3px solid #b4560a
+    border-right: 1.3px solid #94813f
 }
 
 .score-panel:first-child {
@@ -65,12 +65,12 @@
 }
 
 .score-panel h3 {
-    height: 21px;
+    height: 23px;
     margin: 0;
     background: #b2432f;
     color: white;
     text-align: center;
-    font: 700 13.33px/21px Arial, sans-serif;
+    font: 400 14px/23px Arial, sans-serif;
     white-space: nowrap
 }
 
@@ -102,7 +102,7 @@
     width: 64px;
     left: -32px;
     top: -68px;
-    font: bold 10px/11px Arial, sans-serif;
+    font: bold 10.5px/11px Arial, sans-serif;
     white-space: nowrap
 }
 
@@ -142,7 +142,7 @@
     left: -37px;
     top: 26px;
     width: 74px;
-    font: bold 12px/12px Arial, sans-serif
+    font: bold 13px/12px Arial, sans-serif
 }
 
 .scale-min,
@@ -219,20 +219,21 @@ html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
 
 /*Your Scores for the General Test Taken on August 5, 2026部分字号调整*/
 .score-panel:first-child .score-bubble {
-  font-size: 17px;
+  font-size: 19px;
 }
 /* 170 的字号 */
 .score-panel:nth-child(2) .score-bubble {
-    font-size: 17px;
+    font-size: 19px;
 }
 
 /* 3.0 的字号 */
 .score-panel:nth-child(3) .score-bubble {
-    font-size: 17px;
+    font-size: 19px;
 }
 
 .score-summary h2 {
   font-size: 14px;      /* 字号 */
+  font-weight: 400;
   padding-left: 11px;   /* 文字距紫色框左边的距离 */
   padding-right: 12px;  /* 右侧预留空间 */
 }
@@ -252,8 +253,8 @@ html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
 /* 1. 三个红色标题框：下移、调整长短 */
 .score-panel h3 {
   position: relative;
-  top: 3px;                  /* 向下移动 3px */
-  width: calc(100% - 10px);   /* 总宽度缩短 10px */
+  top: 0;
+  width: 100%;
   margin-left: auto;
   margin-right: auto;        /* 缩短后保持居中 */
 }
@@ -261,7 +262,7 @@ html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
 /* 三组 Percentile 文字下移 */
 
 .score-percentile {
-  top: 30px;
+  top: 26px;
 }
 
 /* 三组 Your Scaled Score / Your Score 文字下移 */
