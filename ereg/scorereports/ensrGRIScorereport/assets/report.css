@@ -41,11 +41,11 @@
     white-space: nowrap
 }
 
-/* Use the bundled light face so these headings stay light on mobile too. */
+/* Use the bundled regular face for consistent heading weight on mobile. */
 .score-summary #score-title,
 .score-summary .score-panel h3 {
     font-family: "myriad-pro", Arial, sans-serif;
-    font-weight: 300;
+    font-weight: 400;
     font-synthesis: none;
 }
 
