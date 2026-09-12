@@ -41,10 +41,10 @@
     white-space: nowrap
 }
 
-/* Use the bundled regular face for consistent heading weight on mobile. */
+/* Semibold subject headings remain lighter than the main title. */
 .score-summary .score-panel h3 {
     font-family: "myriad-pro", Arial, sans-serif;
-    font-weight: 400;
+    font-weight: 600;
     font-synthesis: none;
 }
 
@@ -117,7 +117,9 @@
     left: -32px;
     top: -68px;
     font: bold 10.5px/11px Arial, sans-serif;
-    white-space: nowrap
+    white-space: nowrap;
+    transform: scaleY(1.1);
+    transform-origin: center bottom;
 }
 
 .score-bubble {
@@ -141,7 +143,7 @@
 
 .score-panel:nth-child(3) .score-label {
     width: 34px;
-    left: -15px;
+    left: -13px;
     text-align: left;
 }
 
