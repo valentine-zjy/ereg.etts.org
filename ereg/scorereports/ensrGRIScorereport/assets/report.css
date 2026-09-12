@@ -134,8 +134,9 @@
 
 .score-bubble .score-value {
     display: inline-block;
-    transform: scaleY(1.15);
+    transform: translateY(1.5px) scaleY(1.15);
     transform-origin: center;
+    -webkit-text-stroke: 0.25px #b2432f;
 }
 
 .score-panel:nth-child(3) .score-label {
@@ -168,7 +169,8 @@
     left: -37px;
     top: 26px;
     width: 74px;
-    font: bold 13px/12px Arial, sans-serif
+    font: bold 13px/12px Arial, sans-serif;
+    -webkit-text-stroke: 0.2px currentColor;
 }
 
 .scale-min,
