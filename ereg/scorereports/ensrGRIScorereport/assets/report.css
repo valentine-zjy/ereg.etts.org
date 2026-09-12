@@ -41,6 +41,14 @@
     white-space: nowrap
 }
 
+/* Use the bundled light face so these headings stay light on mobile too. */
+.score-summary #score-title,
+.score-summary .score-panel h3 {
+    font-family: "myriad-pro", Arial, sans-serif;
+    font-weight: 300;
+    font-synthesis: none;
+}
+
 .score-panels {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
