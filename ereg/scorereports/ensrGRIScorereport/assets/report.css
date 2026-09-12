@@ -126,6 +126,18 @@
     font: 700 19px/36px Arial, sans-serif
 }
 
+.score-bubble .score-value {
+    display: inline-block;
+    transform: scaleY(1.15);
+    transform-origin: center;
+}
+
+.score-panel:nth-child(3) .score-label {
+    width: 34px;
+    left: -17px;
+    text-align: left;
+}
+
 .score-bubble:after {
     content: '';
     position: absolute;
