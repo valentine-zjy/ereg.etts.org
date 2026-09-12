@@ -286,7 +286,11 @@ html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
     #contentMain { max-width: none; }
     #scoreTable > h1,
     #scoreTable > div[align="right"] { width: 270px; }
-    #scoreTable > h1 { font-size: 32px; }
+    #scoreTable > h1 { font-size: 36px; width: 310px; }
+    #scoreTable > div[align="right"] { width: 290px; }
+    #scoreTable > div[align="right"] .btn { font-size: 13px; }
+    #template-header .programLogo { position: relative; left: 6px; }
+    #template-header .child:not(.child1) { position: relative; left: 3px; }
     #template-header .nav-container { width: 100%; }
     #template-footer .footer-info { width: 100%; }
 }

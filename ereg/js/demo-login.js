@@ -3,7 +3,6 @@
   "use strict";
 
   var reportPath = "/ereg/home.html";
-  var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
   function setupStaticLogin() {
     var form = document.querySelector('form[data-form-primary="true"]');
@@ -13,8 +12,12 @@
 
     if (!form || !username || !submitButton) return;
 
-    form.noValidate = false;
+    form.noValidate = true;
     form.action = "";
+    username.type = "text";
+    username.required = false;
+    username.removeAttribute("pattern");
+    username.setAttribute("aria-required", "false");
 
     if (password) {
       password.required = false;
@@ -26,7 +29,10 @@
     if (signUp) signUp.classList.add("static-login-hidden");
 
     function updateButton() {
-      submitButton.disabled = !emailPattern.test(username.value.trim());
+      submitButton.disabled = false;
+      submitButton.classList.toggle("demo-empty", !username.value.trim());
+      submitButton.style.setProperty("background-color", username.value.trim() ? "#103D4B" : "#d1dee1", "important");
+      submitButton.style.setProperty("color", username.value.trim() ? "#fff" : "#60747b", "important");
     }
 
     function updateButtonAfterOtherHandlers() {
@@ -40,6 +46,9 @@
       password.addEventListener("change", updateButtonAfterOtherHandlers);
     }
     updateButton();
+    new MutationObserver(function () {
+      if (submitButton.disabled) submitButton.disabled = false;
+    }).observe(submitButton, { attributes: true, attributeFilter: ["disabled"] });
 
     // The provider snapshot focuses the first field after its initial paint.
     // Keep the public entry state aligned with the untouched sign-in screen.
@@ -50,17 +59,6 @@
     function continueToReport(event) {
       event.preventDefault();
       event.stopImmediatePropagation();
-
-      if (!emailPattern.test(username.value.trim())) {
-        username.focus();
-        return;
-      }
-
-      try {
-        window.localStorage.setItem("ets-login-identifier", username.value.trim());
-      } catch (error) {
-        // Private browsing can disable storage; routing still works.
-      }
 
       submitButton.disabled = true;
       window.location.assign(reportPath);
