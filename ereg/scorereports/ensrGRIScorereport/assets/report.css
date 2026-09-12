@@ -297,8 +297,8 @@ html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
 
 /* Reviewed PPT pages 1–5: small mobile alignment corrections only. */
 @media screen {
-    #template-header .programLogo img { transform: translateX(-3px); }
-    #template-header .nav-container { column-gap: 21px; }
+    #template-header .programLogo img { transform: translateX(-6px); }
+    #template-header .nav-container { column-gap: 17px; }
 }
 @media screen and (max-width: 980px) {
     #template-header .programLogo { left: 2px; }
