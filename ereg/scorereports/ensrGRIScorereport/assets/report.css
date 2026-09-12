@@ -141,6 +141,14 @@
     -webkit-text-stroke: 0.25px #b2432f;
 }
 
+.score-value .score-vector {
+    display: inline-block;
+    height: 14.5px;
+    width: auto;
+    max-width: none;
+    vertical-align: baseline;
+}
+
 .score-value .score-digit-arial {
     font-family: Arial, sans-serif;
     display: inline-block;
