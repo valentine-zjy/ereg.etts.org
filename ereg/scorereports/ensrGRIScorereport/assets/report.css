@@ -141,7 +141,7 @@
 
 .score-panel:nth-child(3) .score-label {
     width: 34px;
-    left: -16px;
+    left: -15px;
     text-align: left;
 }
 
@@ -170,7 +170,7 @@
     top: 26px;
     width: 74px;
     font: bold 13px/12px Arial, sans-serif;
-    -webkit-text-stroke: 0.2px currentColor;
+    -webkit-text-stroke: 0.35px currentColor;
 }
 
 .scale-min,
