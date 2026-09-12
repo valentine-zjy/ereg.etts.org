@@ -134,7 +134,7 @@
 
 .score-bubble .score-value {
     display: inline-block;
-    transform: translateY(1.5px) scaleY(1.15);
+    transform: translateY(2.5px) scaleY(1.15);
     transform-origin: center;
     -webkit-text-stroke: 0.25px #b2432f;
 }
