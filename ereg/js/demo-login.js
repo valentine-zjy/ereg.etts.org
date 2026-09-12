@@ -2,7 +2,7 @@
 (function () {
   "use strict";
 
-  var reportPath = "/ereg/scorereports/ensrGRIScorereport/core.html";
+  var reportPath = "/ereg/home.html";
   var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
   function setupStaticLogin() {
