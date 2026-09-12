@@ -42,11 +42,17 @@
 }
 
 /* Use the bundled regular face for consistent heading weight on mobile. */
-.score-summary #score-title,
 .score-summary .score-panel h3 {
     font-family: "myriad-pro", Arial, sans-serif;
     font-weight: 400;
     font-synthesis: none;
+}
+
+.score-summary #score-title {
+    font-family: Arial, sans-serif;
+    font-size: 10pt;
+    font-weight: 700;
+    line-height: 15.3664px;
 }
 
 .score-panels {
