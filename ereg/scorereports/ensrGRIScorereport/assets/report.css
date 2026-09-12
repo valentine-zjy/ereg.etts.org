@@ -300,6 +300,7 @@ html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
     #template-header .programLogo img { transform: translateX(-8px); }
     #template-header .nav-container { column-gap: 17px; }
     #template-header .nav-container > .child:nth-child(2) { margin-left: -4px; }
+    #template-header .nav-container > .child:not(.child1) { transform: translateX(4px); }
 }
 @media screen and (max-width: 980px) {
     #template-header .programLogo { left: 2px; }
