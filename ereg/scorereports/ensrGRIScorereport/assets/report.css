@@ -141,6 +141,10 @@
     -webkit-text-stroke: 0.25px #b2432f;
 }
 
+.score-value .score-digit-arial {
+    font-family: Arial, sans-serif;
+}
+
 .score-value .score-digit-one {
     -webkit-text-stroke: 0.1px currentColor;
 }
