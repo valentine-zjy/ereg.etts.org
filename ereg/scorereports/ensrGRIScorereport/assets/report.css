@@ -160,15 +160,9 @@
     right: 1px
 }
 
-@media(max-width:820px) {
-    #scoreTable {
-        overflow-x: auto
-    }
-
-    .score-summary {
-        flex-shrink: 0
-    }
-}
+/* Fit the fixed-width report in the mobile viewport; retain native pinch zoom. */
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+#scoreTable { overflow: visible; }
 
 @page {
     size: A4;
