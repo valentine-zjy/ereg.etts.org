@@ -269,3 +269,24 @@ html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
 .score-label {
   top: -65px;
 }
+
+/* Match the compact controls in the supplied mobile website reference. */
+#scoreTable > div[align="right"] .btn,
+.button-bar .btn {
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 18px;
+    padding: 6px 12px;
+    border-radius: 3px;
+}
+
+@media screen and (max-width: 980px) {
+    #template-header, #contentMain, #template-footer { width: 360px; }
+    #contentMain { max-width: none; }
+    #scoreTable > h1,
+    #scoreTable > div[align="right"] { width: 270px; }
+    #scoreTable > h1 { font-size: 32px; }
+    #template-header .nav-container { width: 100%; }
+    #template-footer .footer-info { width: 100%; }
+}
