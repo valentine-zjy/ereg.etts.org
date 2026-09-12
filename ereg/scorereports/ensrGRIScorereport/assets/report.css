@@ -141,6 +141,10 @@
     -webkit-text-stroke: 0.25px #b2432f;
 }
 
+.score-value .score-digit-one {
+    -webkit-text-stroke: 0.1px currentColor;
+}
+
 .score-panel:nth-child(3) .score-label {
     width: 34px;
     left: -13px;
