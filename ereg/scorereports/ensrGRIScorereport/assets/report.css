@@ -163,6 +163,14 @@
 /* Fit the fixed-width report in the mobile viewport; retain native pinch zoom. */
 html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
 #scoreTable { overflow: visible; }
+/* Mobile overview: align the report near the left edge instead of centering
+   the Bootstrap container, and let the browser pan the entire page. */
+@media screen and (max-width: 980px) {
+    #contentMain { margin-left: 0; margin-right: 0; }
+    html { overflow-x: auto !important; touch-action: auto; }
+    body { min-width: 830px; overflow-x: visible !important; touch-action: auto; }
+    #template-main-wrapper, #contentMain, #scoreTable { overflow: visible !important; }
+}
 
 @page {
     size: A4;
