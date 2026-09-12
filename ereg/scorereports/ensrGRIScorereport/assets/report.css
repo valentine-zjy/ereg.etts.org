@@ -294,3 +294,30 @@ html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
     #template-header .nav-container { width: 100%; }
     #template-footer .footer-info { width: 100%; }
 }
+
+/* Reviewed PPT pages 1–5: small mobile alignment corrections only. */
+@media screen and (max-width: 980px) {
+    #template-header .programLogo { left: 2px; }
+    #template-header .nav-container { width: 350px; }
+    #template-header .child:not(.child1) { left: 0; }
+    #template-header .child a { white-space: nowrap; }
+    #scoreTable > h1 { font-size: 38px; }
+    #scoreTable > div[align="right"] {
+        width: var(--download-right, 300px);
+    }
+    #scoreTable > div[align="right"] .btn {
+        width: var(--download-width, auto);
+        font-size: 14px;
+        line-height: 19px;
+        padding: 7px 4px;
+        white-space: nowrap;
+    }
+    #scoreTable .ap { margin-top: 3px; }
+    #scoreTable .a275 { margin-top: 5px; }
+    .button-bar .btn { font-size: 13px; line-height: 19px; padding: 7px 12px; }
+    #template-footer .footer-list { position: relative; left: 5px; }
+    #template-footer .footer-links li,
+    #template-footer .footer-links a { border-left: 0 !important; border-right: 0 !important; }
+    #template-footer .footer-links li::before,
+    #template-footer .footer-links li::after { content: none !important; }
+}
