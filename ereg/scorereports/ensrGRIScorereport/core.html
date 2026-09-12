@@ -1,60 +1,489 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="GRE Test Taker Score Report">
-  <title>GRE Score Report</title>
-  <link rel="stylesheet" href="../../framework/css/lib/bootstrap/bootstrap-3.3.1.min.css">
-  <link rel="stylesheet" href="../../css/ereg-common.css">
-  <link rel="stylesheet" href="../../css/navigation.css">
-  <link rel="stylesheet" href="../../css/GRI.css">
-  <link rel="stylesheet" href="../../css/score-report.css">
-</head>
-<body>
-  <a class="skip-link" href="#score-report-main">Skip to main content</a>
+<!DOCTYPE html>
+<html lang="en-us" class="k-webkit k-webkit152 wf-myriadprocondensed-n7-active wf-myriadprocondensed-n4-active wf-myriadprocondensed-n6-active wf-myriadprocondensed-i7-active wf-myriadprocondensed-i4-active wf-myriadprocondensed-i3-active wf-myriadpro-n7-active wf-myriadpro-i7-active wf-myriadpro-i4-active wf-myriadpro-n3-active wf-myriadpro-n4-active wf-myriadpro-n6-active wf-myriadpro-i6-active wf-aktivgrotesk-n4-active wf-aktivgrotesk-i4-active wf-aktivgrotesk-n7-active wf-aktivgrotesk-i7-active wf-active"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+     
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="">
+	<meta name="author" content="Irfan Ali @ ETS">
+	<meta name="contextPath" content="/ereg">
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+    
+    
+    
+    
+    
 
-  <header id="template-header" class="header" role="banner">
-    <nav class="nav" aria-label="GRE account navigation">
-      <div class="nav-container">
-        <div class="child child1">
-          <a class="programLogo" href="../../home.html" aria-label="GRE home"><img src="../../img/GRI-header-logo.svg" alt="GRE"></a>
-        </div>
-        <div class="child nav-icon"><a href="../../home.html" aria-label="Home"><svg aria-hidden="true" viewBox="0 0 30 30"><path d="M18.3071 27.7638V20.3465C18.3071 20.0186 18.1768 19.7042 17.945 19.4723C17.7132 19.2405 17.3987 19.1102 17.0709 19.1102H12.126C11.7981 19.1102 11.4837 19.2405 11.2518 19.4723C11.02 19.7042 10.8898 20.0186 10.8898 20.3465V27.7638C10.8898 28.0916 10.7595 28.4061 10.5277 28.6379C10.2958 28.8698 9.98141 29 9.65354 29H2.23622C1.90835 29 1.59392 28.8698 1.36208 28.6379C1.13024 28.4061 1 28.0916 1 27.7638V13.47C1.00277 13.2989 1.03974 13.1301 1.10874 12.9735C1.17774 12.8169 1.27737 12.6758 1.40177 12.5583L13.764 1.32412C13.9919 1.11563 14.2896 1 14.5984 1C14.9073 1 15.205 1.11563 15.4329 1.32412L27.7951 12.5583C27.9195 12.6758 28.0191 12.8169 28.0881 12.9735C28.1571 13.1301 28.1941 13.2989 28.1969 13.47V27.7638C28.1969 28.0916 28.0666 28.4061 27.8348 28.6379C27.6029 28.8698 27.2885 29 26.9606 29H19.5433C19.2154 29 18.901 28.8698 18.6692 28.6379C18.4373 28.4061 18.3071 28.0916 18.3071 27.7638Z"/></svg></a></div>
-        <div class="child nav-icon"><a href="../../home.html" aria-label="Cart"><svg aria-hidden="true" viewBox="0 0 32 29"><path fill="currentColor" d="M11.08 29C12.3171 29 13.32 27.9971 13.32 26.76C13.32 25.5229 12.3171 24.52 11.08 24.52C9.84285 24.52 8.83997 25.5229 8.83997 26.76C8.83997 27.9971 9.84285 29 11.08 29ZM25.64 29C26.8771 29 27.88 27.9971 27.88 26.76C27.88 25.5229 26.8771 24.52 25.64 24.52C24.4029 24.52 23.4 25.5229 23.4 26.76C23.4 27.9971 24.4029 29 25.64 29Z"/><path d="M5.802 6.6H30.918L27.222 19.536C27.0901 20.0055 26.8077 20.4187 26.4182 20.7121C26.0287 21.0055 25.5536 21.1628 25.066 21.16H11.654C11.1664 21.1628 10.6913 21.0055 10.3018 20.7121C9.91226 20.4187 9.62987 20.0055 9.498 19.536L4.43 1.812C4.36303 1.57786 4.22156 1.37192 4.02704 1.2254C3.83252 1.07887 3.59553 0.999744 3.352 1H1"/></svg></a></div>
-        <div class="child nav-icon"><a href="https://www.ets.org/gre/contact" target="_blank" rel="noreferrer" aria-label="Help"><svg aria-hidden="true" viewBox="0 0 33 30"><path d="M2.47126 16.8646C1.16504 14.6639 0.707197 12.062 1.18372 9.54765C1.66025 7.03327 3.03835 4.77937 5.05921 3.20924C7.08007 1.63912 9.60465 0.860806 12.1588 1.02048C14.7129 1.18015 17.1209 2.26682 18.9305 4.0764C20.7401 5.88598 21.8268 8.29397 21.9864 10.8481C22.1461 13.4023 21.3678 15.9268 19.7977 17.9477C18.2275 19.9686 15.9736 21.3467 13.4593 21.8232C10.9449 22.2997 8.34303 21.8419 6.14236 20.5357L2.51496 21.57C2.3655 21.612 2.20755 21.6135 2.05734 21.5742C1.90714 21.5349 1.7701 21.4564 1.66032 21.3466C1.55054 21.2368 1.47198 21.0998 1.43272 20.9496C1.39346 20.7994 1.39492 20.6414 1.43694 20.492L2.47126 16.8646Z"/><path d="M10.9207 21.9924C11.4341 23.4563 12.2663 24.7878 13.3571 25.8908C14.4479 26.9938 15.7701 27.8408 17.2281 28.3705C18.6862 28.9002 20.2437 29.0994 21.7881 28.9537C23.3325 28.8081 24.8253 28.3212 26.1587 27.5282L29.7861 28.5625C29.9355 28.6046 30.0935 28.606 30.2437 28.5668C30.3939 28.5275 30.5309 28.4489 30.6407 28.3392C30.7505 28.2294 30.829 28.0923 30.8683 27.9421C30.9076 27.7919 30.9061 27.634 30.8641 27.4845L29.8298 23.8571C30.7532 22.3071 31.2605 20.5449 31.3027 18.7411C31.3449 16.9374 30.9204 15.1534 30.0705 13.5619C29.2205 11.9705 27.9739 10.6255 26.4514 9.65745C24.9289 8.68938 23.1821 8.13099 21.3804 8.03641"/></svg></a></div>
-        <div class="child account-link"><a href="../../home.html"><svg aria-hidden="true" viewBox="0 0 30 30"><circle cx="15" cy="15" r="14"/><circle cx="15" cy="13.8333" r="5.8333"/><path d="M5.63745 25.4125C6.51524 23.6835 7.85464 22.2314 9.5072 21.217C11.1598 20.2027 13.0609 19.6658 15 19.6658C16.939 19.6658 18.8401 20.2027 20.4927 21.217C22.1453 22.2314 23.4847 23.6835 24.3624 25.4125"/></svg><span>My account<span class="caret"></span></span></a></div>
-      </div>
-    </nav>
-  </header>
+    
+    
+    
+    
+    
 
-  <div id="template-main-wrapper">
-    <main id="score-report-main" class="container top-margin score-page" role="main">
-      <div class="content-wrapper" id="scoreTable">
-        <div class="score-page-heading">
-          <h1>Test Taker Score Report</h1>
-          <a class="btn btn-primary download-button" href="../../../images/5RGB62EB.pdf" download="GRE_Score_Report_5RGB62EB.pdf">Download PDF Report</a>
-        </div>
-        <article id="score-report" class="score-report" aria-label="GRE Test Taker Score Report"></article>
-        <div class="clearfix button-bar report-actions">
-          <a class="btn btn-eReg button button-secondary" href="../../home.html">Back</a>
-          <button class="btn btn-primary button button-primary" type="button">Request Score Review</button>
-        </div>
-      </div>
-    </main>
+    
+
+    
+
+    
+    
+
+
+
+		
+
+		
+
+	
+
+
+
+
+
+
+	
+	
+	<style type="text/css">.tk-myriad-pro-condensed{font-family:"myriad-pro-condensed",sans-serif;}.tk-myriad-pro{font-family:"myriad-pro",sans-serif;}.tk-aktiv-grotesk{font-family:"aktiv-grotesk",sans-serif;}</style><style type="text/css"></style>
+
+	
+
+
+
+
+
+
+
+
+
+	<link href="./assets/bootstrap-3.3.1.min.css" rel="stylesheet" media="screen">
+		
+		<link href="./assets/jquery-ui.min.css" rel="stylesheet" media="screen, print">
+		<link href="./assets/kendo.common.min.css" rel="stylesheet" media="screen, print">
+		<link href="./assets/kendo.default.min.css" rel="stylesheet" media="screen, print">
+		<link href="./assets/kendo.bootstrap.min.css" rel="stylesheet" media="screen, print">
+		<link href="./assets/ereg-common.css" rel="stylesheet" media="screen, print">
+		<link href="./assets/navigation.css" rel="stylesheet" media="screen, print">
+		
+
+	
+		<link href="./assets/GRI.css" rel="stylesheet" media="screen, print">
+	
+	
+
+
+
+
+
+	
+	
+
+	
+	<style id="_goober"> .go2933276541{position:fixed;display:block;width:100%;height:0px;margin:0px;padding:0px;overflow:visible;transform-style:preserve-3d;background:transparent;backface-visibility:hidden;pointer-events:none;left:0px;z-index:9998;}.go2369186930{top:0px;z-index:9999;height:100%;width:100%;}.go1348078617{bottom:0px;}.go2417249464{position:fixed;z-index:9989;}.go3921366393{left:0;bottom:0;}.go3967842156{right:0;bottom:0;}.go613305155{left:0;top:0;}.go471583506{right:0;top:0;}.go3670563033{position:relative;overflow:hidden;display:none;}.go1041095097{display:block;}.go1632949049{position:absolute;pointer-events:none;width:101vw;height:101vh;background:rgba(0,0,0,0.7);opacity:0;z-index:-1;}.go2512015367{z-index:99998;opacity:0.8;visibility:visible;pointer-events:all;cursor:pointer;}.go1432718904{overflow:hidden;}.go812842568{display:block !important;position:static !important;box-sizing:border-box !important;background:transparent !important;border:none;min-height:0px !important;max-height:none !important;margin:0px;padding:0px !important;height:100% !important;width:1px !important;max-width:100% !important;min-width:100% !important;}.go722322694{transition:none !important;}.go3064412225{z-index:99999;visibility:hidden;position:absolute;inset:50vh auto auto 50%;left:50%;top:50%;transform:translate(-50%,-50%) translateY(100vh);pointer-events:none;max-height:95%;max-width:95%;}.go1656994552{pointer-events:auto !important;visibility:visible;transform:translate(-50%,-50%) translateY(0);transition:transform 0.75s linear(0,0.006,0.023 2.2%,0.096 4.8%,0.532 15.4%,0.72 21%,0.793,0.853 26.7%,0.902,0.941,0.968 36.2%,0.987 39.7%,1 43.7%,1.007 48.3%,1.009 55.3%,1.002 78.2%,1 );}.go456419034{transition:opacity 0.3s ease-in;}.go3128134379{pointer-events:auto !important;visibility:visible !important;max-height:95vh !important;transition:max-height 1s ease-in;}.go494047706{z-index:9999;width:100%;max-height:95%;position:fixed;visibility:hidden;}.go2481764524{z-index:9999;width:100%;max-height:95%;position:fixed;visibility:hidden;bottom:0px;}.go2685733372{visibility:hidden;}.go2985984737{visibility:visible !important;}.go3281949485{pointer-events:auto !important;visibility:visible !important;max-height:95vh !important;transform:none !important;}.go3508454897{z-index:9999;width:100%;max-height:95%;position:fixed;visibility:hidden;transition:transform 1s linear(0,0.006,0.022 2.3%,0.091 5.1%,0.18 7.6%,0.508 16.3%,0.607,0.691,0.762,0.822 28.4%,0.872,0.912 35.1%,0.944 38.9%,0.968 43%,0.985 47.6%,0.996 53.1%,1.001 58.4%,1.003 65.1%,1 );}.go988075951{z-index:9999;position:fixed;left:10px;top:10px;max-height:95vh !important;max-width:95%;visibility:hidden;}.go2699082514{z-index:9999;position:fixed;right:10px;top:10px;max-height:95vh !important;max-width:95%;visibility:hidden;}.go1595992025{z-index:9999;position:fixed;left:10px;bottom:10px;max-height:95vh !important;max-width:95%;visibility:hidden;}.go1222083472{z-index:9999;position:fixed;right:10px;bottom:10px;max-height:95vh !important;max-width:95%;visibility:hidden;}.go26732895{cursor:pointer;}.go2083580917{display:flex;justify-content:center;align-items:center;}</style>
+	
+	
+	
+	
+	
+	
+    <link href="./assets/personalisedHome.css" rel="stylesheet">
+    
+    
+        
+    
+	
+
+	
+
+	
+	
+
+	<title>GRE Score Report</title>
+	
+		
+		
+		
+			
+		
+	
+
+	<style id="scroll-margin-style"> * { scroll-margin-top: 61px } </style><link rel="stylesheet" href="./assets/fonts.css"></head><body class="hse"><div id="hs-web-interactives-top-push-anchor" class="go3670563033"></div><div id="breakpoints"></div>
+		
+
+		
+        
+                
+    
+
+		
+
+
+	
+	
+
+
+	<a href="#" class="skip-navigation sr-only sr-only-focusable" data-local-only="true">Skip to main content</a>
+		<div class="wrapper">
+			<div id="blocker" class="bodyOverlay"></div>
+			<div class="page-wrapper">
+				
+					
+				
+
+				<div id="timeoutwarningdialog" title="Timeout Warning"></div>
+
+				
+				
+
+					
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ <link href="./assets/personalisedHome.css" rel="stylesheet">
+
+<link rel="stylesheet" href="./assets/font-awesome.min.css">
+
+
+
+
+
+
+
+
+
+<header id="template-header" class="header" role="banner">
+
+<nav class="nav" role="navigation">
+	<div class="nav-container">
+		<div class="child child1">
+					
+              		   
+              			   
+              			   		
+              			   
+              		   
+              		   
+              		
+			
+				
+					<span class="programLogo">
+						
+						
+								<img src="./assets/GRI-header-logo.svg" title="GRI Header Logo" alt="GRI Program Logo">
+						
+						
+						
+					</span>
+
+				
+   			
+
+
+	
+	
+	
+    
+	</div>
+		
+						
+							
+								
+								
+									
+								
+							
+        
+
+		<div class="child">
+			<a href="#" data-local-only="true">
+				<svg aria-hidden="true" width="30" height="30" viewBox="0 0 30 30" fill="none" stroke="currentColor" xmlns="http://www.w3.org/2000/svg">
+					
+					<path d="M18.3071 27.7638V20.3465C18.3071 20.0186 18.1768 19.7042 17.945 19.4723C17.7132 19.2405 17.3987 19.1102 17.0709 19.1102H12.126C11.7981 19.1102 11.4837 19.2405 11.2518 19.4723C11.02 19.7042 10.8898 20.0186 10.8898 20.3465V27.7638C10.8898 28.0916 10.7595 28.4061 10.5277 28.6379C10.2958 28.8698 9.98141 29 9.65354 29H2.23622C1.90835 29 1.59392 28.8698 1.36208 28.6379C1.13024 28.4061 1 28.0916 1 27.7638V13.47C1.00277 13.2989 1.03974 13.1301 1.10874 12.9735C1.17774 12.8169 1.27737 12.6758 1.40177 12.5583L13.764 1.32412C13.9919 1.11563 14.2896 1 14.5984 1C14.9073 1 15.205 1.11563 15.4329 1.32412L27.7951 12.5583C27.9195 12.6758 28.0191 12.8169 28.0881 12.9735C28.1571 13.1301 28.1941 13.2989 28.1969 13.47V27.7638C28.1969 28.0916 28.0666 28.4061 27.8348 28.6379C27.6029 28.8698 27.2885 29 26.9606 29H19.5433C19.2154 29 18.901 28.8698 18.6692 28.6379C18.4373 28.4061 18.3071 28.0916 18.3071 27.7638Z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+				</svg>
+
+			</a>
+		</div>
+				
+                
+                    
+                
+		<div class="child">
+			<a class="cart" href="#" data-local-only="true">
+				                        <svg aria-hidden="true" width="32" height="29" viewBox="0 0 32 29" fill="none" stroke="currentColor" xmlns="http://www.w3.org/2000/svg">
+                							
+                							<path d="M11.08 29C12.3171 29 13.32 27.9971 13.32 26.76C13.32 25.5229 12.3171 24.52 11.08 24.52C9.84285 24.52 8.83997 25.5229 8.83997 26.76C8.83997 27.9971 9.84285 29 11.08 29Z" fill="currentColor"></path>
+                							<path d="M25.64 29C26.8771 29 27.88 27.9971 27.88 26.76C27.88 25.5229 26.8771 24.52 25.64 24.52C24.4029 24.52 23.4 25.5229 23.4 26.76C23.4 27.9971 24.4029 29 25.64 29Z" fill="currentColor"></path>
+                							<path d="M5.802 6.6H30.918L27.222 19.536C27.0901 20.0055 26.8077 20.4187 26.4182 20.7121C26.0287 21.0055 25.5536 21.1628 25.066 21.16H11.654C11.1664 21.1628 10.6913 21.0055 10.3018 20.7121C9.91226 20.4187 9.62987 20.0055 9.498 19.536L4.43 1.812C4.36303 1.57786 4.22156 1.37192 4.02704 1.2254C3.83252 1.07887 3.59553 0.999744 3.352 1H1" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                						</svg>
+
+				<span class="badge badge-success badge-cart" style="display:none;">0</span>
+
+			</a>
+		</div>
+		
+        
+
+		<div class="child">
+			<a href="#" data-local-only="true">
+
+				                                            <svg width="33" height="30" viewBox="0 0 33 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+				                                                
+                												<path d="M2.47126 16.8646C1.16504 14.6639 0.707197 12.062 1.18372 9.54765C1.66025 7.03327 3.03835 4.77937 5.05921 3.20924C7.08007 1.63912 9.60465 0.860806 12.1588 1.02048C14.7129 1.18015 17.1209 2.26682 18.9305 4.0764C20.7401 5.88598 21.8268 8.29397 21.9864 10.8481C22.1461 13.4023 21.3678 15.9268 19.7977 17.9477C18.2275 19.9686 15.9736 21.3467 13.4593 21.8232C10.9449 22.2997 8.34303 21.8419 6.14236 20.5357L2.51496 21.57C2.3655 21.612 2.20755 21.6135 2.05734 21.5742C1.90714 21.5349 1.7701 21.4564 1.66032 21.3466C1.55054 21.2368 1.47198 21.0998 1.43272 20.9496C1.39346 20.7994 1.39492 20.6414 1.43694 20.492L2.47126 16.8646Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                												<path d="M10.9207 21.9924C11.4341 23.4563 12.2663 24.7878 13.3571 25.8908C14.4479 26.9938 15.7701 27.8408 17.2281 28.3705C18.6862 28.9002 20.2437 29.0994 21.7881 28.9537C23.3325 28.8081 24.8253 28.3212 26.1587 27.5282V27.5282L29.7861 28.5625C29.9355 28.6046 30.0935 28.606 30.2437 28.5668C30.3939 28.5275 30.5309 28.4489 30.6407 28.3392C30.7505 28.2294 30.829 28.0923 30.8683 27.9421C30.9076 27.7919 30.9061 27.634 30.8641 27.4845L29.8298 23.8571C30.7532 22.3071 31.2605 20.5449 31.3027 18.7411C31.3449 16.9374 30.9204 15.1534 30.0705 13.5619C29.2205 11.9705 27.9739 10.6255 26.4514 9.65745C24.9289 8.68938 23.1821 8.13099 21.3804 8.03641" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                											</svg>
+
+
+			</a>
+		</div>
+
+		
+
+		
+		
+
+
+
+		<div class="child">
+			
+			<li role="presentation" class="dropdown">
+					<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false" data-local-only="true">
+						<svg aria-hidden="true" width="30" height="35" viewBox="0 0 30 30" fill="none" stroke="currentColor" xmlns="http://www.w3.org/2000/svg">
+					
+					<path d="M15 29C22.732 29 29 22.732 29 15C29 7.26801 22.732 1 15 1C7.26801 1 1 7.26801 1 15C1 22.732 7.26801 29 15 29Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+					<path d="M15 19.6667C18.2217 19.6667 20.8334 17.055 20.8334 13.8333C20.8334 10.6117 18.2217 8 15 8C11.7784 8 9.16669 10.6117 9.16669 13.8333C9.16669 17.055 11.7784 19.6667 15 19.6667Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+					<path d="M5.63745 25.4125C6.51524 23.6835 7.85464 22.2314 9.5072 21.217C11.1598 20.2027 13.0609 19.6658 15 19.6658C16.939 19.6658 18.8401 20.2027 20.4927 21.217C22.1453 22.2314 23.4847 23.6835 24.3624 25.4125" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+				</svg>
+						<span>My account<span class="caret"></span></span>
+					</a>
+
+			
+				<ul class="dropdown-menu" role="menu">
+						        <li><span style="margin-left:20px;">ETS ID:</span>
+											5RGB62E8
+								</li>
+							    <li><a href="#" data-local-only="true">Personal Information and Preferences</a></li>
+				  				<li><a href="#" data-local-only="true">Change Password</a></li>
+							  	<li id="securityDiv"><a href="#" data-local-only="true">Manage Security Profile</a></li>
+								
+								<li><a href="#" data-local-only="true">Background Information</a></li>
+								<li><a href="#" data-local-only="true">Accommodations</a></li>
+								
+                                   <li>
+                                        <a href="#" data-local-only="true">My Vouchers</a>
+                                   </li>
+                                
+							    
+
+							    <li>
+                                    <a href="#" data-local-only="true">Sign Out</a>
+                                </li>
+								</ul>
+							  </li>
+							
+                            
+
+
+						
+        				
+						
+
+
+						
+				
+			
+			
+
+		</div>
+
+	</div>
+</nav>
+
+
+<div id="countDownTimer" style="text-align: center; margin: auto; display: none;">
+  <b><div id="countdown-timer-tiles" class="btn-primary"></div></b>
+</div>
+
+
+</header>
+
+
+				
+
+				
+			
+
+      <div id="template-main-wrapper" class=" ">
+				
+
+				<div class="container top-margin" id="contentMain" role="main">
+					
+
+<div class="content-wrapper" id="scoreTable">
+
+<h1>Test Taker Score Report</h1>
+
+
+	
+		
+		
+			
+			
+		 		<div align="right">			
+			 	<a class="btn btn-primary" href="./assets/5RGB62EB.pdf" download="5RGB62EB.pdf"> 				
+						Download PDF Report</a>
+				</div>
+			
+			
+
+			
+		 		<meta http-equiv="Content-Style-Type" content="text/css"><meta http-equiv="Content-Script-Type" content="text/javascript"><meta http-equiv="Last-Modified" content="09/11/2026 07:59:45"><meta name="Language" content="en-US"><meta name="Photo" content="NOPHOTO"><style type="text/css">.ap{background-color:Transparent;border:1pt none Black;}.a468xB{border:1pt none Black;background-color:Transparent;}.a22v{word-wrap:break-word;white-space:pre-wrap;min-width: 79.67mm;overflow:hidden;WIDTH:79.67mm;HEIGHT:5.86mm;padding-left:2pt;padding-top:2pt;padding-right:2pt;padding-bottom:2pt;border:1pt none Black;background-color:Transparent;}.a22{word-wrap:break-word;white-space:pre-wrap;WIDTH:100%;HEIGHT:100%;overflow:hidden;font-size:0pt;unicode-bidi:normal;direction:ltr;layout-flow:horizontal;writing-mode:lr-tb;vertical-align:top;}.a21{text-align:left;}.a20{font-family:Arial;font-size:12pt;font-weight:400;font-style:normal;text-decoration:none;color:#b2432f;}.a44{border:1pt none Black;background-color:Transparent;}.a26v{word-wrap:break-word;white-space:pre-wrap;min-width: 112.05mm;overflow:hidden;WIDTH:112.05mm;HEIGHT:5.84mm;padding-left:2pt;padding-top:2pt;padding-right:2pt;padding-bottom:2pt;border:1pt none Black;background-color:Transparent;}.a26{word-wrap:break-word;white-space:pre-wrap;WIDTH:100%;HEIGHT:100%;overflow:hidden;font-size:0pt;unicode-bidi:normal;direction:ltr;layout-flow:horizontal;writing-mode:lr-tb;vertical-align:top;}.a25{text-align:left;}.a24{font-family:Arial;font-size:10pt;font-weight:700;font-style:normal;text-decoration:none;color:Black;}.a32{border:1pt none Black;background-color:Transparent;}.a29{word-wrap:break-word;white-space:pre-wrap;padding-left:2pt;padding-top:2pt;padding-right:2pt;padding-bottom:2pt;border:1pt solid #d3d3d3;background-color:Transparent;font-style:normal;font-family:Arial;font-size:10pt;font-weight:700;text-decoration:none;unicode-bidi:normal;color:Black;direction:ltr;layout-flow:horizontal;writing-mode:lr-tb;vertical-align:middle;text-align:center;}.a35{word-wrap:break-word;white-space:pre-wrap;padding-left:2pt;padding-top:2pt;padding-right:2pt;padding-bottom:2pt;border:1pt none Black;background-color:Transparent;font-size:0pt;unicode-bidi:normal;direction:ltr;layout-flow:horizontal;writing-mode:lr-tb;vertical-align:bottom;}.a34{text-align:left;}.a33{font-family:Arial;font-size:8pt;font-weight:400;font-style:normal;text-decoration:none;color:Black;}.a42v{word-wrap:break-word;white-space:pre-wrap;min-width: 142.18mm;overflow:hidden;WIDTH:142.18mm;HEIGHT:22.82mm;padding-left:2pt;padding-top:2pt;padding-right:2pt;padding-bottom:2pt;border:1pt none Black;background-color:Transparent;}.a42{word-wrap:break-word;white-space:pre-wrap;WIDTH:100%;HEIGHT:100%;overflow:hidden;font-size:0pt;unicode-bidi:normal;direction:ltr;layout-flow:horizontal;writing-mode:lr-tb;vertical-align:top;}.a37{text-align:left;}.a36{font-family:Arial;font-size:10pt;font-weight:700;font-style:normal;text-decoration:none;color:Black;}.a39{text-align:left;}.a38{font-family:Arial;font-size:8pt;font-weight:400;font-style:normal;text-decoration:none;color:Black;}.a41{text-align:left;}.a40{font-family:Arial;font-size:8pt;font-weight:400;font-style:normal;text-decoration:none;color:Black;}.a209{border:1pt none Black;background-color:Transparent;}.a102{word-wrap:break-word;white-space:pre-wrap;padding-left:2pt;padding-top:2pt;padding-right:2pt;padding-bottom:2pt;border:1pt none Black;background-color:#62254f;font-style:normal;font-family:Arial;font-size:10pt;font-weight:700;text-decoration:none;unicode-bidi:normal;color:White;direction:ltr;layout-flow:horizontal;writing-mode:lr-tb;vertical-align:middle;text-align:left;}.a105l{word-wrap:break-word;white-space:pre-wrap;padding-left:2pt;padding-top:2pt;padding-right:2pt;padding-bottom:2pt;border:1pt none Black;background-color:Transparent;font-style:normal;font-family:Arial;font-size:10pt;font-weight:700;text-decoration:none;unicode-bidi:normal;color:#62254f;direction:ltr;layout-flow:horizontal;writing-mode:lr-tb;vertical-align:top;text-align:left;}.a201{border:1pt none Black;background-color:Transparent;}.a108c{padding-left:2pt;padding-top:2pt;padding-right:2pt;padding-bottom:2pt;border-bottom:1pt solid #d3d3d3;border-right:1pt solid #d3d3d3;background-color:Transparent;vertical-align:top;text-align:left;direction:ltr;layout-flow:horizontal;writing-mode:lr-tb;min-width: 40.17mm;WIDTH:40.17mm;}.a119c{padding-left:2pt;padding-top:2pt;padding-right:2pt;padding-bottom:2pt;border:1pt none Black;border-left:1pt solid #a65200;border-right:1pt solid White;background-color:#b2432f;vertical-align:middle;direction:ltr;layout-flow:horizontal;writing-mode:lr-tb;min-width: 50.80mm;WIDTH:50.80mm;}.a119{word-wrap:break-word;white-space:pre-wrap;font-size:0pt;unicode-bidi:normal;direction:ltr;layout-flow:horizontal;writing-mode:lr-tb;vertical-align:middle;}.a118{text-align:center;}.a117{font-family:Arial;font-size:8pt;font-weight:700;font-style:normal;text-decoration:none;color:White;}.a136c{padding-left:2pt;padding-top:2pt;padding-right:2pt;padding-bottom:2pt;border:1pt none Black;border-left:1pt solid White;border-right:1pt solid White;background-color:#b2432f;vertical-align:middle;direction:ltr;layout-flow:horizontal;writing-mode:lr-tb;min-width: 50.80mm;WIDTH:50.80mm;}.a136{word-wrap:break-word;white-space:pre-wrap;font-size:0pt;unicode-bidi:normal;direction:ltr;layout-flow:horizontal;writing-mode:lr-tb;vertical-align:middle;}.a135{text-align:center;}.a134{font-family:Arial;font-size:8pt;font-weight:700;font-style:normal;text-decoration:none;color:White;}.a151c{padding-left:2pt;padding-top:2pt;padding-right:2pt;padding-bottom:2pt;border:1pt none Black;border-left:1pt solid White;border-right:1pt solid #a65200;background-color:#b2432f;vertical-align:middle;direction:ltr;layout-flow:horizontal;writing-mode:lr-tb;min-width: 49.21mm;WIDTH:49.21mm;}.a151{word-wrap:break-word;white-space:pre-wrap;font-size:0pt;unicode-bidi:normal;direction:ltr;layout-flow:horizontal;writing-mode:lr-tb;vertical-align:middle;}.a150{text-align:center;}.a149{font-family:Arial;font-size:8pt;font-weight:700;font-style:normal;text-decoration:none;color:White;}.a112c{padding-left:5pt;padding-top:2pt;padding-right:2pt;padding-bottom:2pt;border:0.25pt solid #858585;background-color:#f5ece8;vertical-align:middle;direction:ltr;layout-flow:horizontal;writing-mode:lr-tb;min-width: 40.17mm;WIDTH:40.17mm;}.a112{word-wrap:break-word;white-space:pre-wrap;font-size:0pt;unicode-bidi:normal;direction:ltr;layout-flow:horizontal;writing-mode:lr-tb;vertical-align:middle;}.a111{text-align:left;}.a110{font-family:Arial;font-size:8pt;font-weight:700;font-style:normal;text-decoration:none;color:Black;}.a123c{padding-left:2pt;padding-top:2pt;padding-right:2pt;padding-bottom:2pt;border:0.25pt solid #858585;background-color:#f5ece8;vertical-align:middle;direction:ltr;layout-flow:horizontal;writing-mode:lr-tb;min-width: 25.40mm;WIDTH:25.40mm;}.a123{word-wrap:break-word;white-space:pre-wrap;font-size:0pt;unicode-bidi:normal;direction:ltr;layout-flow:horizontal;writing-mode:lr-tb;vertical-align:middle;}.a122{text-align:center;}.a121{font-family:Arial;font-size:8pt;font-weight:700;font-style:normal;text-decoration:none;color:Black;}.a129c{padding-left:2pt;padding-top:2pt;padding-right:2pt;padding-bottom:2pt;border:0.25pt solid #858585;background-color:#f5ece8;vertical-align:middle;direction:ltr;layout-flow:horizontal;writing-mode:lr-tb;min-width: 25.40mm;WIDTH:25.40mm;}.a129{word-wrap:break-word;white-space:pre-wrap;font-size:0pt;unicode-bidi:normal;direction:ltr;layout-flow:horizontal;writing-mode:lr-tb;vertical-align:middle;}.a128{text-align:center;}.a127{font-family:Arial;font-size:8pt;font-weight:700;font-style:normal;text-decoration:none;color:Black;}.a140c{padding-left:2pt;padding-top:2pt;padding-right:2pt;padding-bottom:2pt;border:0.25pt solid #858585;background-color:#f5ece8;vertical-align:middle;direction:ltr;layout-flow:horizontal;writing-mode:lr-tb;min-width: 25.40mm;WIDTH:25.40mm;}.a140{word-wrap:break-word;white-space:pre-wrap;font-size:0pt;unicode-bidi:normal;direction:ltr;layout-flow:horizontal;writing-mode:lr-tb;vertical-align:middle;}.a139{text-align:center;}.a138{font-family:Arial;font-size:8pt;font-weight:700;font-style:normal;text-decoration:none;color:Black;}.a145c{padding-left:2pt;padding-top:2pt;padding-right:2pt;padding-bottom:2pt;border:0.25pt solid #858585;background-color:#f5ece8;vertical-align:middle;direction:ltr;layout-flow:horizontal;writing-mode:lr-tb;min-width: 25.40mm;WIDTH:25.40mm;}.a145{word-wrap:break-word;white-space:pre-wrap;font-size:0pt;unicode-bidi:normal;direction:ltr;layout-flow:horizontal;writing-mode:lr-tb;vertical-align:middle;}.a144{text-align:center;}.a143{font-family:Arial;font-size:8pt;font-weight:700;font-style:normal;text-decoration:none;color:Black;}.a155c{padding-left:2pt;padding-top:2pt;padding-right:2pt;padding-bottom:2pt;border:0.25pt solid #858585;background-color:#f5ece8;vertical-align:middle;direction:ltr;layout-flow:horizontal;writing-mode:lr-tb;min-width: 25.40mm;WIDTH:25.40mm;}.a155{word-wrap:break-word;white-space:pre-wrap;font-size:0pt;unicode-bidi:normal;direction:ltr;layout-flow:horizontal;writing-mode:lr-tb;vertical-align:middle;}.a154{text-align:center;}.a153{font-family:Arial;font-size:8pt;font-weight:700;font-style:normal;text-decoration:none;color:Black;}.a160c{padding-left:2pt;padding-top:2pt;padding-right:2pt;padding-bottom:2pt;border:0.25pt solid #858585;background-color:#f5ece8;vertical-align:middle;direction:ltr;layout-flow:horizontal;writing-mode:lr-tb;min-width: 23.81mm;WIDTH:23.81mm;}.a160{word-wrap:break-word;white-space:pre-wrap;font-size:0pt;unicode-bidi:normal;direction:ltr;layout-flow:horizontal;writing-mode:lr-tb;vertical-align:middle;}.a159{text-align:center;}.a158{font-family:Arial;font-size:8pt;font-weight:700;font-style:normal;text-decoration:none;color:Black;}.a167c{padding-left:5pt;padding-top:2pt;padding-right:2pt;padding-bottom:2pt;border:0.25pt solid #858585;background-color:Transparent;vertical-align:middle;direction:ltr;layout-flow:horizontal;writing-mode:lr-tb;min-width: 40.17mm;WIDTH:40.17mm;}.a167{word-wrap:break-word;white-space:pre-wrap;font-size:0pt;unicode-bidi:normal;direction:ltr;layout-flow:horizontal;writing-mode:lr-tb;vertical-align:middle;}.a166{text-align:left;}.a165{font-family:Arial;font-size:8.5pt;font-weight:400;font-style:normal;text-decoration:none;color:Black;}.a171c{padding-left:0pt;padding-top:0pt;padding-right:0pt;padding-bottom:0pt;border:0.25pt solid #858585;background-color:Transparent;vertical-align:middle;direction:ltr;layout-flow:horizontal;writing-mode:lr-tb;min-width: 25.40mm;WIDTH:25.40mm;}.a171{word-wrap:break-word;white-space:pre-wrap;font-size:0pt;unicode-bidi:normal;direction:ltr;layout-flow:horizontal;writing-mode:lr-tb;vertical-align:middle;}.a170{text-align:center;}.a169{font-family:Arial;font-size:8.5pt;font-weight:400;font-style:normal;text-decoration:none;color:Black;}.a175c{padding-left:0pt;padding-top:0pt;padding-right:0pt;padding-bottom:0pt;border:0.25pt solid #858585;background-color:Transparent;vertical-align:middle;direction:ltr;layout-flow:horizontal;writing-mode:lr-tb;min-width: 25.40mm;WIDTH:25.40mm;}.a175{word-wrap:break-word;white-space:pre-wrap;font-size:0pt;unicode-bidi:normal;direction:ltr;layout-flow:horizontal;writing-mode:lr-tb;vertical-align:middle;}.a174{text-align:center;}.a173{font-family:Arial;font-size:8.5pt;font-weight:400;font-style:normal;text-decoration:none;color:Black;}.a179c{padding-left:0pt;padding-top:0pt;padding-right:0pt;padding-bottom:0pt;border:0.25pt solid #858585;background-color:Transparent;vertical-align:middle;direction:ltr;layout-flow:horizontal;writing-mode:lr-tb;min-width: 25.40mm;WIDTH:25.40mm;}.a179{word-wrap:break-word;white-space:pre-wrap;font-size:0pt;unicode-bidi:normal;direction:ltr;layout-flow:horizontal;writing-mode:lr-tb;vertical-align:middle;}.a178{text-align:center;}.a177{font-family:Arial;font-size:8.5pt;font-weight:400;font-style:normal;text-decoration:none;color:Black;}.a183c{padding-left:0pt;padding-top:0pt;padding-right:0pt;padding-bottom:0pt;border:0.25pt solid #858585;background-color:Transparent;vertical-align:middle;direction:ltr;layout-flow:horizontal;writing-mode:lr-tb;min-width: 25.40mm;WIDTH:25.40mm;}.a183{word-wrap:break-word;white-space:pre-wrap;font-size:0pt;unicode-bidi:normal;direction:ltr;layout-flow:horizontal;writing-mode:lr-tb;vertical-align:middle;}.a182{text-align:center;}.a181{font-family:Arial;font-size:8.5pt;font-weight:400;font-style:normal;text-decoration:none;color:Black;}.a187c{padding-left:0pt;padding-top:0pt;padding-right:0pt;padding-bottom:0pt;border:0.25pt solid #858585;background-color:Transparent;vertical-align:middle;direction:ltr;layout-flow:horizontal;writing-mode:lr-tb;min-width: 25.40mm;WIDTH:25.40mm;}.a187{word-wrap:break-word;white-space:pre-wrap;font-size:0pt;unicode-bidi:normal;direction:ltr;layout-flow:horizontal;writing-mode:lr-tb;vertical-align:middle;}.a186{text-align:center;}.a185{font-family:Arial;font-size:8.5pt;font-weight:400;font-style:normal;text-decoration:none;color:Black;}.a191c{padding-left:0pt;padding-top:0pt;padding-right:0pt;padding-bottom:0pt;border:0.25pt solid #858585;background-color:Transparent;vertical-align:middle;direction:ltr;layout-flow:horizontal;writing-mode:lr-tb;min-width: 23.81mm;WIDTH:23.81mm;}.a191{word-wrap:break-word;white-space:pre-wrap;font-size:0pt;unicode-bidi:normal;direction:ltr;layout-flow:horizontal;writing-mode:lr-tb;vertical-align:middle;}.a190{text-align:center;}.a189{font-family:Arial;font-size:8.5pt;font-weight:400;font-style:normal;text-decoration:none;color:Black;}.a204{word-wrap:break-word;white-space:pre-wrap;padding-left:0pt;padding-top:2pt;padding-right:0pt;padding-bottom:2pt;border:1pt none Black;background-color:Transparent;font-size:0pt;unicode-bidi:normal;direction:ltr;layout-flow:horizontal;writing-mode:lr-tb;vertical-align:top;}.a203{text-align:left;}.a202{font-family:Arial;font-size:7pt;font-weight:400;font-style:normal;text-decoration:none;color:Black;}.a275{border:1pt none Black;background-color:Transparent;}.a212l{word-wrap:break-word;white-space:pre-wrap;padding-left:2pt;padding-top:2pt;padding-right:2pt;padding-bottom:2pt;border:1pt none Black;background-color:Transparent;font-style:normal;font-family:Arial;font-size:10pt;font-weight:700;text-decoration:none;unicode-bidi:normal;color:#62254f;direction:ltr;layout-flow:horizontal;writing-mode:lr-tb;vertical-align:top;text-align:left;}.a273v{word-wrap:break-word;white-space:pre-wrap;min-width: 190.23mm;overflow:hidden;WIDTH:190.23mm;HEIGHT:6.35mm;padding-left:2pt;padding-top:2pt;padding-right:2pt;padding-bottom:2pt;border:1pt none Black;background-color:Transparent;}.a273l{word-wrap:break-word;white-space:pre-wrap;WIDTH:100%;HEIGHT:100%;overflow:hidden;font-style:normal;font-family:Arial;font-size:10pt;font-weight:400;text-decoration:none;unicode-bidi:normal;color:Black;direction:ltr;layout-flow:horizontal;writing-mode:lr-tb;vertical-align:top;text-align:left;}.a278{word-wrap:break-word;white-space:pre-wrap;padding-left:2pt;padding-top:2pt;padding-right:2pt;padding-bottom:2pt;border:1pt none Black;background-color:#62254f;font-style:normal;font-family:Arial;font-size:10pt;font-weight:700;text-decoration:none;unicode-bidi:normal;color:White;direction:ltr;layout-flow:horizontal;writing-mode:lr-tb;vertical-align:middle;text-align:left;}.a338{border:1pt none Black;background-color:Transparent;}.a281l{word-wrap:break-word;white-space:pre-wrap;padding-left:0pt;padding-top:2pt;padding-right:2pt;padding-bottom:2pt;background-color:Transparent;font-style:normal;font-family:Arial;font-size:10pt;font-weight:700;text-decoration:none;unicode-bidi:normal;color:#62254f;direction:ltr;layout-flow:horizontal;writing-mode:lr-tb;vertical-align:middle;text-align:left;}.a336{border:1pt none Black;background-color:Transparent;}.a286cl{padding-left:5pt;padding-top:2pt;padding-right:2pt;padding-bottom:2pt;border:0.25pt solid #858585;background-color:#f5ece8;vertical-align:middle;text-align:left;direction:ltr;layout-flow:horizontal;writing-mode:lr-tb;min-width: 31.15mm;WIDTH:31.15mm;}.a286{word-wrap:break-word;white-space:pre-wrap;font-style:normal;font-family:Arial;font-size:8.5pt;font-weight:700;text-decoration:none;unicode-bidi:normal;color:Black;direction:ltr;layout-flow:horizontal;writing-mode:lr-tb;vertical-align:middle;text-align:left;}.a290cl{padding-left:5pt;padding-top:2pt;padding-right:2pt;padding-bottom:2pt;border:0.25pt solid #858585;background-color:#f5ece8;vertical-align:middle;text-align:left;direction:ltr;layout-flow:horizontal;writing-mode:lr-tb;min-width: 53.40mm;WIDTH:53.40mm;}.a290{word-wrap:break-word;white-space:pre-wrap;font-style:normal;font-family:Arial;font-size:8.5pt;font-weight:700;text-decoration:none;unicode-bidi:normal;color:Black;direction:ltr;layout-flow:horizontal;writing-mode:lr-tb;vertical-align:middle;text-align:left;}.a294cl{padding-left:5pt;padding-top:2pt;padding-right:2pt;padding-bottom:2pt;border:0.25pt solid #858585;background-color:#f5ece8;vertical-align:middle;text-align:left;direction:ltr;layout-flow:horizontal;writing-mode:lr-tb;min-width: 33.75mm;WIDTH:33.75mm;}.a294{word-wrap:break-word;white-space:pre-wrap;font-style:normal;font-family:Arial;font-size:8.5pt;font-weight:700;text-decoration:none;unicode-bidi:normal;color:Black;direction:ltr;layout-flow:horizontal;writing-mode:lr-tb;vertical-align:middle;text-align:left;}.a318cl{padding-left:5pt;padding-top:2pt;padding-right:2pt;padding-bottom:2pt;border:0.25pt solid #858585;background-color:#f5ece8;vertical-align:middle;text-align:left;direction:ltr;layout-flow:horizontal;writing-mode:lr-tb;min-width: 37.20mm;WIDTH:37.20mm;}.a318{word-wrap:break-word;white-space:pre-wrap;font-style:normal;font-family:Arial;font-size:8.5pt;font-weight:700;text-decoration:none;unicode-bidi:normal;color:Black;direction:ltr;layout-flow:horizontal;writing-mode:lr-tb;vertical-align:middle;text-align:left;}.a322cl{padding-left:5pt;padding-top:2pt;padding-right:2pt;padding-bottom:2pt;border:0.25pt solid #858585;background-color:#f5ece8;vertical-align:middle;text-align:left;direction:ltr;layout-flow:horizontal;writing-mode:lr-tb;min-width: 34.84mm;WIDTH:34.84mm;}.a322{word-wrap:break-word;white-space:pre-wrap;font-style:normal;font-family:Arial;font-size:8.5pt;font-weight:700;text-decoration:none;unicode-bidi:normal;color:Black;direction:ltr;layout-flow:horizontal;writing-mode:lr-tb;vertical-align:middle;text-align:left;}.a401{border:1pt none Black;background-color:Transparent;}.a341l{word-wrap:break-word;white-space:pre-wrap;padding-left:0pt;padding-top:2pt;padding-right:2pt;padding-bottom:2pt;background-color:Transparent;font-style:normal;font-family:Arial;font-size:10pt;font-weight:700;text-decoration:none;unicode-bidi:normal;color:#62254f;direction:ltr;layout-flow:horizontal;writing-mode:lr-tb;vertical-align:top;text-align:left;}.a396{border:1pt none Black;background-color:Transparent;}.a346cl{padding-left:5pt;padding-top:2pt;padding-right:2pt;padding-bottom:2pt;border:0.25pt solid #858585;background-color:#f5ece8;vertical-align:middle;text-align:left;direction:ltr;layout-flow:horizontal;writing-mode:lr-tb;min-width: 31.15mm;WIDTH:31.15mm;}.a346{word-wrap:break-word;white-space:pre-wrap;font-style:normal;font-family:Arial;font-size:8.5pt;font-weight:700;text-decoration:none;unicode-bidi:normal;color:Black;direction:ltr;layout-flow:horizontal;writing-mode:lr-tb;vertical-align:middle;text-align:left;}.a350cl{padding-left:5pt;padding-top:2pt;padding-right:2pt;padding-bottom:2pt;border:0.25pt solid #858585;background-color:#f5ece8;vertical-align:middle;text-align:left;direction:ltr;layout-flow:horizontal;writing-mode:lr-tb;min-width: 53.40mm;WIDTH:53.40mm;}.a350{word-wrap:break-word;white-space:pre-wrap;font-style:normal;font-family:Arial;font-size:8.5pt;font-weight:700;text-decoration:none;unicode-bidi:normal;color:Black;direction:ltr;layout-flow:horizontal;writing-mode:lr-tb;vertical-align:middle;text-align:left;}.a354cl{padding-left:5pt;padding-top:2pt;padding-right:2pt;padding-bottom:2pt;border:0.25pt solid #858585;background-color:#f5ece8;vertical-align:middle;text-align:left;direction:ltr;layout-flow:horizontal;writing-mode:lr-tb;min-width: 33.75mm;WIDTH:33.75mm;}.a354{word-wrap:break-word;white-space:pre-wrap;font-style:normal;font-family:Arial;font-size:8.5pt;font-weight:700;text-decoration:none;unicode-bidi:normal;color:Black;direction:ltr;layout-flow:horizontal;writing-mode:lr-tb;vertical-align:middle;text-align:left;}.a378cl{padding-left:5pt;padding-top:2pt;padding-right:2pt;padding-bottom:2pt;border:0.25pt solid #858585;background-color:#f5ece8;vertical-align:middle;text-align:left;direction:ltr;layout-flow:horizontal;writing-mode:lr-tb;min-width: 37.20mm;WIDTH:37.20mm;}.a378{word-wrap:break-word;white-space:pre-wrap;font-style:normal;font-family:Arial;font-size:8.5pt;font-weight:700;text-decoration:none;unicode-bidi:normal;color:Black;direction:ltr;layout-flow:horizontal;writing-mode:lr-tb;vertical-align:middle;text-align:left;}.a382cl{padding-left:5pt;padding-top:2pt;padding-right:2pt;padding-bottom:2pt;border:0.25pt solid #858585;background-color:#f5ece8;vertical-align:middle;text-align:left;direction:ltr;layout-flow:horizontal;writing-mode:lr-tb;min-width: 34.84mm;WIDTH:34.84mm;}.a382{word-wrap:break-word;white-space:pre-wrap;font-style:normal;font-family:Arial;font-size:8.5pt;font-weight:700;text-decoration:none;unicode-bidi:normal;color:Black;direction:ltr;layout-flow:horizontal;writing-mode:lr-tb;vertical-align:middle;text-align:left;}.a399{word-wrap:break-word;white-space:pre-wrap;padding-left:2pt;padding-top:2pt;padding-right:2pt;padding-bottom:2pt;border:1pt none Black;background-color:Transparent;font-size:0pt;unicode-bidi:normal;direction:ltr;layout-flow:horizontal;writing-mode:lr-tb;vertical-align:top;}.a398{text-align:left;}.a397{font-family:Arial;font-size:8pt;font-weight:400;font-style:normal;text-decoration:none;color:Black;}.a412{border:1pt none Black;background-color:Transparent;}.a404{word-wrap:break-word;white-space:pre-wrap;padding-left:2pt;padding-top:2pt;padding-right:2pt;padding-bottom:2pt;border:1pt none Black;background-color:#62254f;font-size:0pt;unicode-bidi:normal;direction:ltr;layout-flow:horizontal;writing-mode:lr-tb;vertical-align:middle;}.a403{text-align:left;}.a402{font-family:Arial;font-size:10pt;font-weight:700;font-style:normal;text-decoration:none;color:White;}.a407l{word-wrap:break-word;white-space:pre-wrap;padding-left:2pt;padding-top:2pt;padding-right:2pt;padding-bottom:2pt;border:1pt none Black;background-color:Transparent;font-style:normal;font-family:Arial;font-size:10pt;font-weight:700;text-decoration:none;unicode-bidi:normal;color:#62254f;direction:ltr;layout-flow:horizontal;writing-mode:lr-tb;vertical-align:top;text-align:left;}.a410{word-wrap:break-word;white-space:pre-wrap;padding-left:2pt;padding-top:2pt;padding-right:2pt;padding-bottom:2pt;border:1pt none Black;background-color:Transparent;font-size:0pt;unicode-bidi:normal;direction:ltr;layout-flow:horizontal;writing-mode:lr-tb;vertical-align:top;}.a409{text-align:left;}.a408{font-family:Arial;font-size:8.5pt;font-weight:400;font-style:normal;text-decoration:none;color:Black;}.a417{border:1pt none Black;background-color:Transparent;}.a415{word-wrap:break-word;white-space:pre-wrap;padding-left:2pt;padding-top:4pt;padding-right:2pt;padding-bottom:2pt;border:1pt solid White;background-color:Transparent;font-size:0pt;unicode-bidi:normal;direction:ltr;layout-flow:horizontal;writing-mode:lr-tb;vertical-align:top;}.a414l{font-family:Arial;font-size:10pt;}.a414p{text-align:left;}.a413{font-family:Arial;font-size:8.5pt;font-weight:400;font-style:normal;text-decoration:none;color:Black;}.a422{border:1pt none Black;background-color:Transparent;}.a420{word-wrap:break-word;white-space:pre-wrap;padding-left:2pt;padding-top:2pt;padding-right:2pt;padding-bottom:2pt;border:1pt none Black;background-color:Transparent;font-size:0pt;unicode-bidi:normal;direction:ltr;layout-flow:horizontal;writing-mode:lr-tb;vertical-align:top;}.a419{text-align:left;}.a418{font-family:Arial;font-size:8.5pt;font-weight:400;font-style:normal;text-decoration:none;color:Black;}.a427{border:1pt none Black;background-color:Transparent;}.a425{word-wrap:break-word;white-space:pre-wrap;padding-left:2pt;padding-top:4pt;padding-right:2pt;padding-bottom:2pt;border:1pt solid White;background-color:Transparent;font-size:0pt;unicode-bidi:normal;direction:ltr;layout-flow:horizontal;writing-mode:lr-tb;vertical-align:top;}.a424{text-align:left;}.a423{font-family:Arial;font-size:8.5pt;font-weight:400;font-style:normal;text-decoration:none;color:Black;}.a435{border:1pt none Black;background-color:Transparent;}.a430l{word-wrap:break-word;white-space:pre-wrap;padding-left:2pt;padding-top:2pt;padding-right:2pt;padding-bottom:2pt;border:1pt none Black;background-color:Transparent;font-style:normal;font-family:Arial;font-size:10pt;font-weight:700;text-decoration:none;unicode-bidi:normal;color:#62254f;direction:ltr;layout-flow:horizontal;writing-mode:lr-tb;vertical-align:top;text-align:left;}.a433{word-wrap:break-word;white-space:pre-wrap;padding-left:2pt;padding-top:2pt;padding-right:2pt;padding-bottom:2pt;border:1pt none Black;background-color:Transparent;font-size:0pt;unicode-bidi:normal;direction:ltr;layout-flow:horizontal;writing-mode:lr-tb;vertical-align:top;}.a432{text-align:left;}.a431{font-family:Arial;font-size:8.5pt;font-weight:400;font-style:normal;text-decoration:none;color:Black;}.a443{border:1pt none Black;background-color:Transparent;}.a438l{word-wrap:break-word;white-space:pre-wrap;padding-left:2pt;padding-top:2pt;padding-right:2pt;padding-bottom:2pt;border:1pt none Black;background-color:Transparent;font-style:normal;font-family:Arial;font-size:10pt;font-weight:700;text-decoration:none;unicode-bidi:normal;color:#62254f;direction:ltr;layout-flow:horizontal;writing-mode:lr-tb;vertical-align:top;text-align:left;}.a441{word-wrap:break-word;white-space:pre-wrap;padding-left:2pt;padding-top:2pt;padding-right:2pt;padding-bottom:2pt;border:1pt none Black;background-color:Transparent;font-size:0pt;unicode-bidi:normal;direction:ltr;layout-flow:horizontal;writing-mode:lr-tb;vertical-align:top;}.a440{text-align:left;}.a439{font-family:Arial;font-size:8.5pt;font-weight:400;font-style:normal;text-decoration:none;color:Black;}.a456{border:1pt none Black;background-color:Transparent;}.a446l{word-wrap:break-word;white-space:pre-wrap;padding-left:2pt;padding-top:2pt;padding-right:2pt;padding-bottom:2pt;border:1pt none Black;background-color:Transparent;font-style:normal;font-family:Arial;font-size:10pt;font-weight:700;text-decoration:none;unicode-bidi:normal;color:#62254f;direction:ltr;layout-flow:horizontal;writing-mode:lr-tb;vertical-align:top;text-align:left;}.a454{border:1pt none Black;background-color:Transparent;}.a449{word-wrap:break-word;white-space:pre-wrap;padding-left:2pt;padding-top:2pt;padding-right:2pt;padding-bottom:2pt;border:1pt none Black;background-color:Transparent;font-size:0pt;unicode-bidi:normal;direction:ltr;layout-flow:horizontal;writing-mode:lr-tb;vertical-align:top;}.a448{text-align:left;}.a447{font-family:Arial;font-size:8.5pt;font-weight:400;font-style:normal;text-decoration:none;color:Black;}.a452{word-wrap:break-word;white-space:pre-wrap;padding-left:2pt;padding-top:2pt;padding-right:2pt;padding-bottom:2pt;border:1pt none Black;background-color:Transparent;font-size:0pt;unicode-bidi:normal;direction:ltr;layout-flow:horizontal;writing-mode:lr-tb;vertical-align:top;}.a451{text-align:left;}.a450{font-family:Arial;font-size:8.5pt;font-weight:400;font-style:normal;text-decoration:none;color:Black;}.a466{border:1pt none Black;background-color:Transparent;}.a459l{word-wrap:break-word;white-space:pre-wrap;padding-left:2pt;padding-top:2pt;padding-right:2pt;padding-bottom:2pt;border:1pt none Black;background-color:Transparent;font-style:normal;font-family:Arial;font-size:10pt;font-weight:700;text-decoration:none;unicode-bidi:normal;color:#62254f;direction:ltr;layout-flow:horizontal;writing-mode:lr-tb;vertical-align:top;text-align:left;}.a464{border:1pt none Black;background-color:Transparent;}.a462{word-wrap:break-word;white-space:pre-wrap;padding-left:2pt;padding-top:2pt;padding-right:2pt;padding-bottom:2pt;border:1pt none Black;background-color:Transparent;font-size:0pt;unicode-bidi:normal;direction:ltr;layout-flow:horizontal;writing-mode:lr-tb;vertical-align:top;}.a461{text-align:left;}.a460{font-family:Arial;font-size:8.5pt;font-weight:400;font-style:normal;text-decoration:none;color:Black;}.r1{HEIGHT:100%;WIDTH:100%}.r2{HEIGHT:100%;WIDTH:100%;overflow:hidden}.r3{HEIGHT:100%}.r4{border-style:none}.r5{border-left-style:none}.r6{border-right-style:none}.r7{border-top-style:none}.r8{border-bottom-style:none}.r10{border-collapse:collapse}.r9{border-collapse:collapse;table-layout:fixed}.r11{WIDTH:100%;overflow-x:hidden}.r12{position:absolute;display:none;background-color:white;border:1px solid black;}.r13{text-decoration:none;color:black;cursor:pointer;}.r14{font-size:0pt}.r15{direction:RTL;unicode-bidi:embed}.r16{margin-top:0pt;margin-bottom:0pt}.r17{HEIGHT:100%;WIDTH:100%;display:inline-table}.r18{HEIGHT:100%;display:inline-table} * { box-sizing: border-box }</style><div dir="LTR" id="oReportDiv"><div style="WIDTH:100%;" class="ap"><table cellspacing="0" cellpadding="0"><tbody><tr><td id="oReportCell"><table cellspacing="0" cellpadding="0" border="0" class="a468xB"><tbody><tr><td style="vertical-align:top"><table cellspacing="0" cellpadding="0" border="0" cols="19" lang="en-US" class="r10" style="WIDTH:207.3275mm"><tbody><tr><td style="HEIGHT:2.94mm;WIDTH:0.00mm"></td><td style="WIDTH:3.51mm;min-width: 3.51mm;HEIGHT:2.94mm;"></td><td style="WIDTH:2.95mm;min-width: 2.95mm;HEIGHT:2.94mm;"></td><td style="WIDTH:0.07mm;min-width: 0.07mm;HEIGHT:2.94mm;"></td><td style="WIDTH:0.42mm;min-width: 0.42mm;HEIGHT:2.94mm;"></td><td style="WIDTH:0.08mm;min-width: 0.08mm;HEIGHT:2.94mm;"></td><td style="WIDTH:0.14mm;min-width: 0.14mm;HEIGHT:2.94mm;"></td><td style="WIDTH:0.02mm;min-width: 0.02mm;HEIGHT:2.94mm;"></td><td style="WIDTH:0.02mm;min-width: 0.02mm;HEIGHT:2.94mm;"></td><td style="WIDTH:0.08mm;min-width: 0.08mm;HEIGHT:2.94mm;"></td><td style="WIDTH:0.28mm;min-width: 0.28mm;HEIGHT:2.94mm;"></td><td style="WIDTH:0.11mm;min-width: 0.11mm;HEIGHT:2.94mm;"></td><td style="WIDTH:0.25mm;min-width: 0.25mm;HEIGHT:2.94mm;"></td><td style="WIDTH:0.02mm;min-width: 0.02mm;HEIGHT:2.94mm;"></td><td style="WIDTH:78.19mm;min-width: 78.19mm;HEIGHT:2.94mm;"></td><td style="WIDTH:111.58mm;min-width: 111.58mm;HEIGHT:2.94mm;"></td><td style="WIDTH:0.29mm;min-width: 0.29mm;HEIGHT:2.94mm;"></td><td style="WIDTH:4.93mm;min-width: 4.93mm;HEIGHT:2.94mm;"></td><td style="WIDTH:4.05mm;min-width: 4.05mm;HEIGHT:2.94mm;"></td></tr><tr valign="top"><td style="HEIGHT:5.86mm;WIDTH:0.00mm"></td><td colspan="2" style="WIDTH:6.46mm;min-width: 6.46mm;HEIGHT:5.86mm;"></td><td colspan="12" style="WIDTH:79.67mm;min-width: 79.67mm;"><div class="a22v"><div class="a22"><div style="overflow-x:hidden;"><div class="a21"><span class="a20">TEST TAKER SCORE REPORT </span></div></div></div></div></td><td colspan="4" style="WIDTH:120.85mm;min-width: 120.85mm;HEIGHT:5.86mm;"></td></tr><tr valign="top"><td style="WIDTH:0.00mm"></td><td style="WIDTH:3.51mm;min-width: 3.51mm;"></td><td colspan="16" style="WIDTH:199.42mm;min-width: 199.42mm;"><table cellspacing="0" cellpadding="0" border="0" style="WIDTH:199.77mm;min-width: 199.77mm;HEIGHT:53.43mm;" class="a44"><tbody><tr><td style="vertical-align:top"><table cellspacing="0" cellpadding="0" border="0" cols="11" lang="en-US" class="r10" style="WIDTH:199.7659mm"><tbody><tr><td style="HEIGHT:2.81mm;WIDTH:0.00mm"></td><td style="WIDTH:2.61mm;min-width: 2.61mm;HEIGHT:2.81mm;"></td><td style="WIDTH:0.34mm;min-width: 0.34mm;HEIGHT:2.81mm;"></td><td style="WIDTH:0.27mm;min-width: 0.27mm;HEIGHT:2.81mm;"></td><td style="WIDTH:111.78mm;min-width: 111.78mm;HEIGHT:2.81mm;"></td><td style="WIDTH:1.88mm;min-width: 1.88mm;HEIGHT:2.81mm;"></td><td style="WIDTH:27.92mm;min-width: 27.92mm;HEIGHT:2.81mm;"></td><td style="WIDTH:4.26mm;min-width: 4.26mm;HEIGHT:2.81mm;"></td><td style="WIDTH:45.22mm;min-width: 45.22mm;HEIGHT:2.81mm;"></td><td style="WIDTH:1.42mm;min-width: 1.42mm;HEIGHT:2.81mm;"></td><td style="WIDTH:4.08mm;min-width: 4.08mm;HEIGHT:2.81mm;"></td></tr><tr><td style="HEIGHT:0.33mm;WIDTH:0.00mm"></td><td style="WIDTH:2.61mm;min-width: 2.61mm;HEIGHT:0.33mm;"></td><td colspan="8" style="WIDTH:193.08mm;min-width: 193.08mm;HEIGHT:0.33mm;;border-width:0px;border-top:1pt solid #b2432f"></td><td style="WIDTH:4.08mm;min-width: 4.08mm;HEIGHT:0.33mm;"></td></tr><tr valign="top"><td style="HEIGHT:1.10mm;WIDTH:0.00mm"></td><td rowspan="5" colspan="2" style="WIDTH:2.95mm;min-width: 2.95mm;HEIGHT:1.10mm;"></td><td rowspan="2" colspan="2" style="WIDTH:112.05mm;min-width: 112.05mm;"><div class="a26v"><div class="a26"><div style="overflow-x:hidden;"><div class="a25"><span class="a24">TING WU</span></div></div></div></div></td><td colspan="6" style="WIDTH:84.77mm;min-width: 84.77mm;HEIGHT:1.10mm;"></td></tr><tr valign="top"><td style="HEIGHT:4.74mm;WIDTH:0.00mm"></td><td rowspan="2" colspan="3" style="WIDTH:34.06mm;min-width: 34.06mm;HEIGHT:4.74mm;"></td><td rowspan="6" style="WIDTH:45.22mm;min-width: 45.22mm;"><table cellspacing="0" cellpadding="0" border="0" style="WIDTH:45.22mm;min-width: 45.22mm;HEIGHT:44.96mm;" class="a32"><tbody><tr><td style="vertical-align:top"><table cellspacing="0" cellpadding="0" border="0" cols="4" lang="en-US" class="r10" style="WIDTH:45.21835mm"><tbody><tr><td style="HEIGHT:6.35mm;WIDTH:0.00mm"></td><td style="WIDTH:0.64mm;min-width: 0.64mm;HEIGHT:6.35mm;"></td><td style="WIDTH:42.74mm;min-width: 42.74mm;HEIGHT:6.35mm;"></td><td style="WIDTH:1.85mm;min-width: 1.85mm;HEIGHT:6.35mm;"></td></tr><tr valign="top"><td style="HEIGHT:38.10mm;WIDTH:0.00mm"></td><td style="WIDTH:0.64mm;min-width: 0.64mm;HEIGHT:38.10mm;"></td><td style="WIDTH:42.74mm;min-width: 42.74mm;"><table cellspacing="0" cellpadding="0" lang="en-US" style=""><tbody><tr><td style="width: 42.74mm; min-width: 42.74mm; height: 38.1mm; border-width: medium; border-style: none; border-color: currentcolor; border-image: none; padding: 0px; vertical-align: top;" class="a29"><img class="candidate-photo" src="./assets/photo.png" alt="TING WU" width="162" height="121"></td></tr></tbody></table></td><td style="WIDTH:1.85mm;min-width: 1.85mm;HEIGHT:38.10mm;"></td></tr><tr><td style="HEIGHT:0.51mm;WIDTH:0.00mm"></td><td colspan="3" style="WIDTH:45.22mm;min-width: 45.22mm;HEIGHT:0.51mm;"></td></tr></tbody></table></td></tr></tbody></table></td><td rowspan="7" colspan="2" style="WIDTH:5.49mm;min-width: 5.49mm;HEIGHT:4.74mm;"></td></tr><tr><td style="HEIGHT:2.13mm;WIDTH:0.00mm"></td><td colspan="2" style="WIDTH:112.05mm;min-width: 112.05mm;HEIGHT:2.13mm;"></td></tr><tr valign="top"><td style="HEIGHT:4.25mm;WIDTH:0.00mm"></td><td style="WIDTH:0.27mm;min-width: 0.27mm;HEIGHT:4.25mm;"></td><td colspan="2" style="WIDTH:113.66mm;min-width: 113.66mm;"><table cellspacing="0" cellpadding="0" lang="en-US" style=""><tbody><tr><td style="WIDTH:113.66mm;min-width: 113.66mm;HEIGHT:4.25mm;" class="a35"><div style="overflow-x:hidden;WIDTH:112.25mm;"><div class="a34"><span style="font-weight:700;" class="a33">Address: </span><span class="a33">PINGYI,YILIN, YILIN, 273300 China<br></span><span style="font-weight:700;" class="a33">Email: </span><span class="a33">xiaowuminye@163.com<br></span><span style="font-weight:700;" class="a33">Phone: </span><span class="a33">86-13287133601<br></span><span style="font-weight:700;" class="a33">Date of Birth: </span><span class="a33">November 23, 1999<br></span><span style="font-weight:700;" class="a33">Gender: </span><span class="a33">Female<br></span></div></div></td></tr></tbody></table></td><td rowspan="2" colspan="2" style="WIDTH:32.18mm;min-width: 32.18mm;HEIGHT:4.25mm;"></td></tr><tr><td style="HEIGHT:5.27mm;WIDTH:0.00mm"></td><td colspan="3" style="WIDTH:113.93mm;min-width: 113.93mm;HEIGHT:5.27mm;"></td></tr><tr valign="top"><td style="HEIGHT:22.82mm;WIDTH:0.00mm"></td><td style="WIDTH:2.61mm;min-width: 2.61mm;HEIGHT:22.82mm;"></td><td colspan="5" style="WIDTH:142.18mm;min-width: 142.18mm;"><div class="a42v"><div class="a42"><div style="overflow-x:hidden;"><div class="a37"><span class="a36">Most Recent Test Date: August 5, 2026</span></div><div class="a39"><span class="a38"><br></span><span style="font-weight:700;" class="a38">Test Center Country:</span><span class="a38"> China<br></span><span style="font-weight:700;" class="a38">Test Center:</span><span class="a38"> STNRPCHN - Home Edition<br></span><span style="font-weight:700;" class="a38">Registration Number:</span><span class="a38"> 3872463</span></div><div class="a41"><span class="a40">&nbsp;</span></div></div></div></div></td><td style="WIDTH:4.26mm;min-width: 4.26mm;HEIGHT:22.82mm;"></td></tr><tr><td style="HEIGHT:5.73mm;WIDTH:0.00mm"></td><td rowspan="2" colspan="7" style="WIDTH:149.05mm;min-width: 149.05mm;HEIGHT:5.73mm;"></td></tr><tr><td style="HEIGHT:4.24mm;WIDTH:0.00mm"></td><td style="WIDTH:45.22mm;min-width: 45.22mm;HEIGHT:4.24mm;"></td></tr></tbody></table></td></tr></tbody></table></td><td style="WIDTH:4.05mm;min-width: 4.05mm;"></td></tr><tr><td style="HEIGHT:4.93mm;WIDTH:0.00mm"></td><td colspan="18" style="WIDTH:206.98mm;min-width: 206.98mm;HEIGHT:4.93mm;"></td></tr><tr valign="top"><td style="WIDTH:0.00mm"></td><td rowspan="26" colspan="3" style="WIDTH:6.53mm;min-width: 6.53mm;"></td><td colspan="14" style="WIDTH:196.40mm;min-width: 196.40mm;"><section class="score-summary" aria-labelledby="score-title"><h2 id="score-title">Your Scores for the General Test Taken on August 5, 2026</h2><div class="score-panels"><article class="score-panel" aria-label="Verbal Reasoning: 159, 80th percentile"><h3>Verbal Reasoning</h3><div class="score-plot"><span class="scale-min">130</span><div class="score-scale"><div class="score-marker" style="left:72.5%"><div class="score-label">Your Scaled<br>Score:</div><div class="score-bubble">159</div><div class="score-stem"></div><div class="score-percentile">80th<br>Percentile</div></div></div><span class="scale-max">170</span></div></article><article class="score-panel" aria-label="Quantitative Reasoning: 170, 91st percentile"><h3>Quantitative Reasoning</h3><div class="score-plot"><span class="scale-min">130</span><div class="score-scale"><div class="score-marker" style="left:100%"><div class="score-label">Your Scaled<br>Score:</div><div class="score-bubble">170</div><div class="score-stem"></div><div class="score-percentile">91st<br>Percentile</div></div></div><span class="scale-max">170</span></div></article><article class="score-panel" aria-label="Analytical Writing: 3.0, 17th percentile"><h3>Analytical Writing</h3><div class="score-plot"><span class="scale-min">0</span><div class="score-scale"><div class="score-marker" style="left:50%"><div class="score-label">Your<br>Score:</div><div class="score-bubble">3.0</div><div class="score-stem"></div><div class="score-percentile">17th<br>Percentile</div></div></div><span class="scale-max">6</span></div></article></div></section><table cellspacing="0" cellpadding="0" border="0" style="WIDTH:196.75mm;min-width: 196.75mm;HEIGHT:35.45mm;" class="a209"><tbody><tr><td style="vertical-align:top"><table cellspacing="0" cellpadding="0" border="0" cols="5" lang="en-US" class="r10" style="WIDTH:196.7497mm"><tbody><tr height="0"><td style="WIDTH:60.86mm;min-width: 60.86mm"></td><td style="WIDTH:129.89mm;min-width: 129.89mm"></td><td style="WIDTH:0.23mm;min-width: 0.23mm"></td><td style="WIDTH:2.32mm;min-width: 2.32mm"></td><td style="WIDTH:3.45mm;min-width: 3.45mm"></td></tr><tr valign="top"><td colspan="2" style="HEIGHT:6.35mm;WIDTH:190.75mm;min-width: 190.75mm;"><table cellspacing="0" cellpadding="0" lang="en-US" style=""><tbody><tr><td style="WIDTH:190.75mm;min-width: 190.75mm;HEIGHT:6.35mm;" class="a102">  Your Test Score History</td></tr></tbody></table></td><td rowspan="4" colspan="3" style="WIDTH:6.00mm;min-width: 6.00mm;HEIGHT:6.35mm;"></td></tr><tr><td colspan="2" style="HEIGHT:1.24mm;WIDTH:190.75mm;min-width: 190.75mm;HEIGHT:1.24mm;"></td></tr><tr valign="top"><td style="HEIGHT:3.18mm;WIDTH:60.86mm;min-width: 60.86mm;"><table cellspacing="0" cellpadding="0" lang="en-US" style=""><tbody><tr><td style="WIDTH:60.86mm;min-width: 60.86mm;HEIGHT:3.18mm;" class="a105l">General Test Scores</td></tr></tbody></table></td><td style="WIDTH:129.89mm;min-width: 129.89mm;HEIGHT:3.18mm;"></td></tr><tr><td colspan="2" style="HEIGHT:0.45mm;WIDTH:190.75mm;min-width: 190.75mm;HEIGHT:0.45mm;"></td></tr><tr valign="top"><td colspan="3" style="WIDTH:190.99mm;min-width: 190.99mm;"><table cellspacing="0" cellpadding="0" cols="8" border="0" style="border-collapse:collapse;WIDTH:190.99mm;min-width: 190.99mm;" class="a201"><tbody><tr height="0"><td style="WIDTH:0px"></td><td style="WIDTH:40.17mm;min-width: 40.17mm"></td><td style="WIDTH:25.40mm;min-width: 25.40mm"></td><td style="WIDTH:25.40mm;min-width: 25.40mm"></td><td style="WIDTH:25.40mm;min-width: 25.40mm"></td><td style="WIDTH:25.40mm;min-width: 25.40mm"></td><td style="WIDTH:25.40mm;min-width: 25.40mm"></td><td style="WIDTH:23.81mm;min-width: 23.81mm"></td></tr><tr valign="top"><td style="HEIGHT:6.35mm"></td><td id="165iT0C0x0" class="a108c r14">&nbsp;</td><td id="179iT0" colspan="2" class="a119c"><div class="a119"><div style="overflow-x:hidden;WIDTH:48.68mm;"><div class="a118"><span class="a117">Verbal Reasoning</span></div></div></div></td><td id="196iT0" colspan="2" class="a136c"><div class="a136"><div style="overflow-x:hidden;WIDTH:48.68mm;"><div class="a135"><span class="a134">Quantitative Reasoning</span></div></div></div></td><td id="211iT0" colspan="2" class="a151c"><div class="a151"><div style="overflow-x:hidden;WIDTH:47.10mm;"><div class="a150"><span class="a149">Analytical Writing</span></div></div></div></td></tr><tr valign="top"><td style="HEIGHT:5.84mm"></td><td id="173iT0C0x0" class="a112c"><div class="a112"><div style="overflow-x:hidden;WIDTH:37.53mm;"><div class="a111"><span class="a110">Test Date</span></div></div></div></td><td id="184iT0" class="a123c"><div class="a123"><div style="overflow-x:hidden;WIDTH:23.81mm;"><div class="a122"><span class="a121">Scaled Score</span></div></div></div></td><td id="190iT0" class="a129c"><div class="a129"><div style="overflow-x:hidden;WIDTH:23.81mm;"><div class="a128"><span class="a127">Percentile</span></div></div></div></td><td id="201iT0" class="a140c"><div class="a140"><div style="overflow-x:hidden;WIDTH:23.81mm;"><div class="a139"><span class="a138">Scaled Score</span></div></div></div></td><td id="206iT0" class="a145c"><div class="a145"><div style="overflow-x:hidden;WIDTH:23.81mm;"><div class="a144"><span class="a143">Percentile</span></div></div></div></td><td id="216iT0" class="a155c"><div class="a155"><div style="overflow-x:hidden;WIDTH:23.81mm;"><div class="a154"><span class="a153">Score</span></div></div></div></td><td id="221iT0" class="a160c"><div class="a160"><div style="overflow-x:hidden;WIDTH:22.22mm;"><div class="a159"><span class="a158">Percentile</span></div></div></div></td></tr><tr valign="top"><td style="HEIGHT:5.84mm"></td><td headers="165iT0C0x0 173iT0C0x0" class="a167c"><div class="a167"><div style="overflow-x:hidden;WIDTH:37.53mm;"><div class="a166"><span class="a165">August 5, 2026</span></div></div></div></td><td headers="179iT0 184iT0" class="a171c"><div class="a171"><div style="overflow-x:hidden;WIDTH:25.22mm;"><div class="a170"><span class="a169">159</span></div></div></div></td><td headers="179iT0 190iT0" class="a175c"><div class="a175"><div style="overflow-x:hidden;WIDTH:25.22mm;"><div class="a174"><span class="a173">80</span></div></div></div></td><td headers="196iT0 201iT0" class="a179c"><div class="a179"><div style="overflow-x:hidden;WIDTH:25.22mm;"><div class="a178"><span class="a177">170</span></div></div></div></td><td headers="196iT0 206iT0" class="a183c"><div class="a183"><div style="overflow-x:hidden;WIDTH:25.22mm;"><div class="a182"><span class="a181">91</span></div></div></div></td><td headers="211iT0 216iT0" class="a187c"><div class="a187"><div style="overflow-x:hidden;WIDTH:25.22mm;"><div class="a186"><span class="a185">3.0</span></div></div></div></td><td headers="211iT0 221iT0" class="a191c"><div class="a191"><div style="overflow-x:hidden;WIDTH:23.64mm;"><div class="a190"><span class="a189">17</span></div></div></div></td></tr></tbody></table></td><td rowspan="2" colspan="2" style="WIDTH:5.76mm;min-width: 5.76mm;HEIGHT:18.03mm;"></td></tr><tr><td colspan="3" style="HEIGHT:0.48mm;WIDTH:190.99mm;min-width: 190.99mm;HEIGHT:0.48mm;"></td></tr><tr valign="top"><td colspan="4" style="HEIGHT:4.57mm;WIDTH:193.30mm;min-width: 193.30mm;"></td><td style="WIDTH:3.45mm;min-width: 3.45mm;HEIGHT:4.57mm;"></td></tr><tr><td colspan="5" style="WIDTH:196.75mm;min-width: 196.75mm;HEIGHT:1.16mm;"></td></tr></tbody></table></td></tr></tbody></table></td><td style="WIDTH:4.05mm;min-width: 4.05mm;"></td></tr><tr><td style="HEIGHT:5.29mm;WIDTH:0.00mm"></td><td colspan="15" style="WIDTH:200.45mm;min-width: 200.45mm;HEIGHT:5.29mm;"></td></tr><tr valign="top"><td style="WIDTH:0.00mm"></td><td style="WIDTH:0.42mm;min-width: 0.42mm;"></td><td colspan="11" style="WIDTH:190.76mm;min-width: 190.76mm;"><table cellspacing="0" cellpadding="0" border="0" style="WIDTH:190.80mm;min-width: 190.80mm;HEIGHT:14.96mm;" class="a275"><tbody><tr><td style="vertical-align:top"><table cellspacing="0" cellpadding="0" border="0" cols="3" lang="en-US" class="r10" style="WIDTH:190.801mm"><tbody><tr valign="top"><td style="HEIGHT:6.35mm;WIDTH:60.86mm;min-width: 60.86mm;"><table cellspacing="0" cellpadding="0" lang="en-US" style=""><tbody><tr><td style="WIDTH:60.86mm;min-width: 60.86mm;HEIGHT:6.35mm;" class="a212l">Subject Test Scores</td></tr></tbody></table></td><td style="WIDTH:129.37mm;min-width: 129.37mm;HEIGHT:6.35mm;"></td><td style="WIDTH:0.57mm;min-width: 0.57mm;HEIGHT:6.35mm;"></td></tr><tr><td colspan="3" style="HEIGHT:2.26mm;WIDTH:190.80mm;min-width: 190.80mm;HEIGHT:2.26mm;"></td></tr><tr valign="top"><td colspan="2" style="HEIGHT:6.35mm;WIDTH:190.23mm;min-width: 190.23mm;"><div class="a273v"><div class="a273l">You do not have reportable test scores at this time.</div></div></td><td style="WIDTH:0.57mm;min-width: 0.57mm;HEIGHT:6.35mm;"></td></tr></tbody></table></td></tr></tbody></table></td><td rowspan="6" colspan="3" style="WIDTH:9.27mm;min-width: 9.27mm;"></td></tr><tr><td style="HEIGHT:7.31mm;WIDTH:0.00mm"></td><td colspan="12" style="WIDTH:191.18mm;min-width: 191.18mm;HEIGHT:7.31mm;"></td></tr><tr valign="top"><td style="HEIGHT:5.82mm;WIDTH:0.00mm"></td><td rowspan="22" colspan="2" style="WIDTH:0.51mm;min-width: 0.51mm;HEIGHT:5.82mm;"></td><td colspan="10" style="WIDTH:190.67mm;min-width: 190.67mm;"><table cellspacing="0" cellpadding="0" lang="en-US" style=""><tbody><tr><td style="WIDTH:190.77mm;min-width: 190.77mm;HEIGHT:5.82mm;" class="a278">  Your Score Recipient(s)</td></tr></tbody></table></td></tr><tr><td style="HEIGHT:1.41mm;WIDTH:0.00mm"></td><td colspan="10" style="WIDTH:190.67mm;min-width: 190.67mm;HEIGHT:1.41mm;"></td></tr><tr valign="top"><td style="WIDTH:0.00mm"></td><td style="WIDTH:0.14mm;min-width: 0.14mm;"></td><td colspan="9" style="WIDTH:190.53mm;min-width: 190.53mm;"><table cellspacing="0" cellpadding="0" border="0" style="WIDTH:190.53mm;min-width: 190.53mm;HEIGHT:12.98mm;" class="a338"><tbody><tr><td style="vertical-align:top"><table cellspacing="0" cellpadding="0" border="0" cols="4" lang="en-US" class="r10" style="WIDTH:190.529mm"><tbody><tr height="0"><td style="WIDTH:0px"></td><td style="WIDTH:0.18mm;min-width: 0.18mm"></td><td style="WIDTH:118.12mm;min-width: 118.12mm"></td><td style="WIDTH:72.22mm;min-width: 72.22mm"></td></tr><tr valign="top"><td style="HEIGHT:6.35mm;WIDTH:0.00mm"></td><td colspan="2" style="WIDTH:118.31mm;min-width: 118.31mm;"><table cellspacing="0" cellpadding="0" lang="en-US" style=""><tbody><tr><td style="WIDTH:118.31mm;min-width: 118.31mm;HEIGHT:6.35mm;" class="a281l">Undergraduate Institution</td></tr></tbody></table></td><td style="WIDTH:72.22mm;min-width: 72.22mm;HEIGHT:6.35mm;"></td></tr><tr valign="top"><td style="WIDTH:0.00mm"></td><td style="WIDTH:0.18mm;min-width: 0.18mm;"></td><td colspan="2" style="WIDTH:190.35mm;min-width: 190.35mm;"><table cellspacing="0" cellpadding="0" cols="6" border="0" style="border-collapse:collapse;WIDTH:190.35mm;min-width: 190.35mm;" class="a336"><tbody><tr height="0"><td style="WIDTH:0px"></td><td style="WIDTH:31.15mm;min-width: 31.15mm"></td><td style="WIDTH:53.40mm;min-width: 53.40mm"></td><td style="WIDTH:33.75mm;min-width: 33.75mm"></td><td style="WIDTH:37.20mm;min-width: 37.20mm"></td><td style="WIDTH:34.84mm;min-width: 34.84mm"></td></tr><tr valign="top"><td style="HEIGHT:6.35mm"></td><td id="333iT2" class="a286cl"><div class="a286">Report Date  </div></td><td id="338iT2" class="a290cl"><div class="a290">Institution (Code)</div></td><td id="343iT2" class="a294cl"><div class="a294">Department (Code)</div></td><td headers="333iT2 338iT2 343iT2" class="a318cl"><div class="a318">Test Title</div></td><td headers="333iT2 338iT2 343iT2" class="a322cl"><div class="a322">Test Date</div></td></tr></tbody></table></td></tr><tr><td style="HEIGHT:0.26mm;WIDTH:0.00mm"></td><td colspan="3" style="WIDTH:190.53mm;min-width: 190.53mm;HEIGHT:0.26mm;"></td></tr></tbody></table></td></tr></tbody></table></td></tr><tr><td style="HEIGHT:2.22mm;WIDTH:0.00mm"></td><td colspan="10" style="WIDTH:190.67mm;min-width: 190.67mm;HEIGHT:2.22mm;"></td></tr><tr valign="top"><td style="WIDTH:0.00mm"></td><td rowspan="2" colspan="3" style="WIDTH:0.18mm;min-width: 0.18mm;"></td><td colspan="8" style="WIDTH:190.78mm;min-width: 190.78mm;"><table cellspacing="0" cellpadding="0" border="0" style="WIDTH:190.88mm;min-width: 190.88mm;HEIGHT:33.52mm;" class="a401"><tbody><tr><td style="vertical-align:top"><table cellspacing="0" cellpadding="0" border="0" cols="3" lang="en-US" class="r10" style="WIDTH:190.8846mm"><tbody><tr><td style="HEIGHT:0.89mm;WIDTH:118.31mm;min-width: 118.31mm;HEIGHT:0.89mm;"></td><td style="WIDTH:72.04mm;min-width: 72.04mm;HEIGHT:0.89mm;"></td><td style="WIDTH:0.54mm;min-width: 0.54mm;HEIGHT:0.89mm;"></td></tr><tr valign="top"><td style="HEIGHT:6.35mm;WIDTH:118.31mm;min-width: 118.31mm;"><table cellspacing="0" cellpadding="0" lang="en-US" style=""><tbody><tr><td style="WIDTH:118.31mm;min-width: 118.31mm;HEIGHT:6.35mm;" class="a341l">Designated Score Recipient(s)</td></tr></tbody></table></td><td colspan="2" style="WIDTH:72.58mm;min-width: 72.58mm;HEIGHT:6.35mm;"></td></tr><tr valign="top"><td colspan="2" style="WIDTH:190.35mm;min-width: 190.35mm;"><table cellspacing="0" cellpadding="0" cols="6" border="0" style="border-collapse:collapse;WIDTH:190.35mm;min-width: 190.35mm;" class="a396"><tbody><tr height="0"><td style="WIDTH:0px"></td><td style="WIDTH:31.15mm;min-width: 31.15mm"></td><td style="WIDTH:53.40mm;min-width: 53.40mm"></td><td style="WIDTH:33.75mm;min-width: 33.75mm"></td><td style="WIDTH:37.20mm;min-width: 37.20mm"></td><td style="WIDTH:34.84mm;min-width: 34.84mm"></td></tr><tr valign="top"><td style="HEIGHT:6.35mm"></td><td id="395iT3" class="a346cl"><div class="a346">Report Date  </div></td><td id="400iT3" class="a350cl"><div class="a350">Score Recipient (Code)</div></td><td id="405iT3" class="a354cl"><div class="a354">Department (Code)</div></td><td headers="395iT3 400iT3 405iT3" class="a378cl"><div class="a378">Test Title</div></td><td headers="395iT3 400iT3 405iT3" class="a382cl"><div class="a382">Test Date</div></td></tr></tbody></table></td><td style="WIDTH:0.54mm;min-width: 0.54mm;HEIGHT:6.35mm;"></td></tr><tr><td colspan="3" style="HEIGHT:3.45mm;WIDTH:190.88mm;min-width: 190.88mm;HEIGHT:3.45mm;"></td></tr><tr valign="top"><td colspan="3" style="HEIGHT:16.48mm;WIDTH:190.88mm;min-width: 190.88mm;"><table cellspacing="0" cellpadding="0" lang="en-US" style=""><tbody><tr><td style="WIDTH:190.88mm;min-width: 190.88mm;HEIGHT:16.48mm;" class="a399"><div style="overflow-x:hidden;WIDTH:189.47mm;"><div class="a398"><span class="a397"><br></span></div></div></td></tr></tbody></table></td></tr></tbody></table></td></tr></tbody></table></td><td rowspan="18" colspan="2" style="WIDTH:8.98mm;min-width: 8.98mm;"></td></tr><tr><td style="HEIGHT:8.22mm;WIDTH:0.00mm"></td><td colspan="8" style="WIDTH:190.78mm;min-width: 190.78mm;HEIGHT:8.22mm;"></td></tr><tr valign="top"><td style="WIDTH:0.00mm"></td><td rowspan="16" colspan="2" style="WIDTH:0.16mm;min-width: 0.16mm;"></td><td colspan="8" style="WIDTH:190.51mm;min-width: 190.51mm;"><table cellspacing="0" cellpadding="0" border="0" style="WIDTH:190.51mm;min-width: 190.51mm;HEIGHT:22.77mm;" class="a412"><tbody><tr><td style="vertical-align:top"><table cellspacing="0" cellpadding="0" border="0" cols="3" lang="en-US" class="r10" style="WIDTH:190.5091mm"><tbody><tr><td style="HEIGHT:0.20mm;WIDTH:60.86mm;min-width: 60.86mm;HEIGHT:0.20mm;"></td><td style="WIDTH:129.21mm;min-width: 129.21mm;HEIGHT:0.20mm;"></td><td style="WIDTH:0.44mm;min-width: 0.44mm;HEIGHT:0.20mm;"></td></tr><tr valign="top"><td colspan="3" style="HEIGHT:6.09mm;WIDTH:190.51mm;min-width: 190.51mm;"><table cellspacing="0" cellpadding="0" lang="en-US" style=""><tbody><tr><td style="WIDTH:190.51mm;min-width: 190.51mm;HEIGHT:6.09mm;" class="a404"><div style="overflow-x:hidden;WIDTH:189.10mm;"><div class="a403"><span class="a402">About Your </span><span style="font-style:italic;" class="a402">GRE</span><span style="font-family:Calibri;font-size:13.5pt;" class="a402">®</span><span class="a402"> Score Report</span></div></div></td></tr></tbody></table></td></tr><tr><td colspan="3" style="HEIGHT:2.99mm;WIDTH:190.51mm;min-width: 190.51mm;HEIGHT:2.99mm;"></td></tr><tr valign="top"><td style="HEIGHT:6.35mm;WIDTH:60.86mm;min-width: 60.86mm;"><table cellspacing="0" cellpadding="0" lang="en-US" style=""><tbody><tr><td style="WIDTH:60.86mm;min-width: 60.86mm;HEIGHT:6.35mm;" class="a407l">Score Reporting Policies</td></tr></tbody></table></td><td colspan="2" style="WIDTH:129.65mm;min-width: 129.65mm;HEIGHT:6.35mm;"></td></tr><tr valign="top"><td colspan="2" style="HEIGHT:7.14mm;WIDTH:190.07mm;min-width: 190.07mm;"><table cellspacing="0" cellpadding="0" lang="en-US" style=""><tbody><tr><td style="WIDTH:190.07mm;min-width: 190.07mm;HEIGHT:7.14mm;" class="a410"><div style="overflow-x:hidden;WIDTH:188.66mm;"><div class="a409"><span class="a408">With the </span><span style="font-style:italic;" class="a408">ScoreSelect</span><span style="font-family:Calibri;font-size:13.5pt;" class="a408">®</span><span class="a408"> option, you can decide which test scores to send to the institutions you designate. There are three options to choose from:</span></div></div></td></tr></tbody></table></td><td style="WIDTH:0.44mm;min-width: 0.44mm;HEIGHT:7.14mm;"></td></tr></tbody></table></td></tr></tbody></table></td><td style="WIDTH:0.29mm;min-width: 0.29mm;"></td></tr><tr><td style="HEIGHT:1.18mm;WIDTH:0.00mm"></td><td colspan="9" style="WIDTH:190.80mm;min-width: 190.80mm;HEIGHT:1.18mm;"></td></tr><tr valign="top"><td style="WIDTH:0.00mm"></td><td colspan="8" style="WIDTH:190.51mm;min-width: 190.51mm;"><table cellspacing="0" cellpadding="0" border="0" style="WIDTH:190.58mm;min-width: 190.58mm;HEIGHT:19.58mm;" class="a417"><tbody><tr><td style="vertical-align:top"><table cellspacing="0" cellpadding="0" border="0" cols="2" lang="en-US" class="r10" style="WIDTH:190.5831mm"><tbody><tr valign="top"><td style="HEIGHT:19.58mm;WIDTH:190.31mm;min-width: 190.31mm;"><table cellspacing="0" cellpadding="0" lang="en-US" style=""><tbody><tr><td style="WIDTH:190.31mm;min-width: 190.31mm;HEIGHT:19.58mm;" class="a415"><div style="overflow-x:hidden;WIDTH:188.20mm;"><ul type="disc" class="r16"><div><li class="a414l"><div class="a414p"><span class="a413">Most Recent option - Send your scores from your most recent test administration</span></div></li></div><div><li class="a414l"><div class="a414p"><span class="a413">All option - Send your scores from all administrations in the last five years</span></div></li></div><div><li class="a414l"><div class="a414p"><span class="a413">Any option - Send your scores from one OR as many test administrations in the last five years (this option is not available on test day when you select up to four FREE score reports)</span></div></li></div></ul></div></td></tr></tbody></table></td><td style="WIDTH:0.27mm;min-width: 0.27mm;HEIGHT:19.58mm;"></td></tr></tbody></table></td></tr></tbody></table></td><td style="WIDTH:0.29mm;min-width: 0.29mm;"></td></tr><tr><td style="HEIGHT:3.22mm;WIDTH:0.00mm"></td><td colspan="9" style="WIDTH:190.80mm;min-width: 190.80mm;HEIGHT:3.22mm;"></td></tr><tr valign="top"><td style="WIDTH:0.00mm"></td><td rowspan="12" colspan="2" style="WIDTH:0.10mm;min-width: 0.10mm;"></td><td colspan="7" style="WIDTH:190.70mm;min-width: 190.70mm;"><table cellspacing="0" cellpadding="0" border="0" style="WIDTH:191.05mm;min-width: 191.05mm;HEIGHT:14.29mm;" class="a422"><tbody><tr><td style="vertical-align:top"><table cellspacing="0" cellpadding="0" border="0" cols="2" lang="en-US" class="r10" style="WIDTH:191.0486mm"><tbody><tr valign="top"><td style="HEIGHT:14.29mm;WIDTH:190.81mm;min-width: 190.81mm;"><table cellspacing="0" cellpadding="0" lang="en-US" style=""><tbody><tr><td style="WIDTH:190.81mm;min-width: 190.81mm;HEIGHT:14.29mm;" class="a420"><div style="overflow-x:hidden;WIDTH:189.39mm;"><div class="a419"><span class="a418">Scores for a test administration must be reported in their entirety. Institutions will receive score reports that show only the scores that you selected to send to them. There will be no special indication if you have taken additional GRE tests. See the </span><span style="font-style:italic;" class="a418">GRE</span><span style="font-family:Calibri;" class="a418">®</span><span class="a418"> </span><span style="font-style:italic;" class="a418">Information Bulletin</span><span class="a418"> for details. The policies and procedures explained in the Bulletin for the current testing year supersede previous policies and procedures in previous bulletins. <br><br>If your scores are not available for any reason, you will see "Not Available" in Your Test Score History.</span></div></div></td></tr></tbody></table></td><td style="WIDTH:0.24mm;min-width: 0.24mm;HEIGHT:14.29mm;"></td></tr></tbody></table></td></tr></tbody></table></td></tr><tr><td style="HEIGHT:2.12mm;WIDTH:0.00mm"></td><td colspan="7" style="WIDTH:190.70mm;min-width: 190.70mm;HEIGHT:2.12mm;"></td></tr><tr valign="top"><td style="WIDTH:0.00mm"></td><td rowspan="2" colspan="3" style="WIDTH:0.63mm;min-width: 0.63mm;"></td><td colspan="4" style="WIDTH:190.07mm;min-width: 190.07mm;"><table cellspacing="0" cellpadding="0" border="0" style="WIDTH:190.42mm;min-width: 190.42mm;HEIGHT:19.58mm;" class="a427"><tbody><tr><td style="vertical-align:top"><table cellspacing="0" cellpadding="0" lang="en-US" style=""><tbody><tr><td style="WIDTH:190.42mm;min-width: 190.42mm;HEIGHT:19.58mm;" class="a425"><div style="overflow-x:hidden;WIDTH:188.30mm;"><div class="a424"><span class="a423">GRE test scores are reportable for five (5) years following your test date. For example, scores for a test taken on July 3, 2021, are reportable through July 2, 2026. Note: Score recipients will only receive scores from test administrations that you have selected to send to them. <br><br>Beginning in September 2023, the subscores on the Physics and Psychology Tests will be reported as percent correct scores (i.e., the percentage of questions in a subscore area answered correctly). Subscores earned after September 2023 should not be compared with scaled subscores earned prior to September 2023.</span></div></div></td></tr></tbody></table></td></tr></tbody></table></td></tr><tr><td style="HEIGHT:3.38mm;WIDTH:0.00mm"></td><td colspan="4" style="WIDTH:190.07mm;min-width: 190.07mm;HEIGHT:3.38mm;"></td></tr><tr valign="top"><td style="WIDTH:0.00mm"></td><td style="WIDTH:0.28mm;min-width: 0.28mm;"></td><td colspan="6" style="WIDTH:190.43mm;min-width: 190.43mm;"><table cellspacing="0" cellpadding="0" border="0" style="WIDTH:190.67mm;min-width: 190.67mm;HEIGHT:18.90mm;" class="a435"><tbody><tr><td style="vertical-align:top"><table cellspacing="0" cellpadding="0" border="0" cols="3" lang="en-US" class="r10" style="WIDTH:190.6679mm"><tbody><tr><td style="HEIGHT:0.38mm;WIDTH:60.86mm;min-width: 60.86mm;HEIGHT:0.38mm;"></td><td style="WIDTH:129.59mm;min-width: 129.59mm;HEIGHT:0.38mm;"></td><td style="WIDTH:0.22mm;min-width: 0.22mm;HEIGHT:0.38mm;"></td></tr><tr valign="top"><td style="HEIGHT:6.35mm;WIDTH:60.86mm;min-width: 60.86mm;"><table cellspacing="0" cellpadding="0" lang="en-US" style=""><tbody><tr><td style="WIDTH:60.86mm;min-width: 60.86mm;HEIGHT:6.35mm;" class="a430l">Percentile Rank (% Below)</td></tr></tbody></table></td><td colspan="2" style="WIDTH:129.81mm;min-width: 129.81mm;HEIGHT:6.35mm;"></td></tr><tr valign="top"><td colspan="2" style="HEIGHT:12.17mm;WIDTH:190.45mm;min-width: 190.45mm;"><table cellspacing="0" cellpadding="0" lang="en-US" style=""><tbody><tr><td style="WIDTH:190.45mm;min-width: 190.45mm;HEIGHT:12.17mm;" class="a433"><div style="overflow-x:hidden;WIDTH:189.04mm;"><div class="a432"><span class="a431">A percentile rank for a test score indicates the percentage of test takers who took that test and received a lower score. Regardless of when the reported scores were earned, the percentile ranks for General Test and Subject Test scores are based on the scores of all test takers who tested within the most recent three-year period.</span></div></div></td></tr></tbody></table></td><td style="WIDTH:0.22mm;min-width: 0.22mm;HEIGHT:12.17mm;"></td></tr></tbody></table></td></tr></tbody></table></td></tr><tr><td style="HEIGHT:3.46mm;WIDTH:0.00mm"></td><td colspan="7" style="WIDTH:190.70mm;min-width: 190.70mm;HEIGHT:3.46mm;"></td></tr><tr valign="top"><td style="WIDTH:0.00mm"></td><td rowspan="2" colspan="2" style="WIDTH:0.38mm;min-width: 0.38mm;"></td><td colspan="5" style="WIDTH:190.32mm;min-width: 190.32mm;"><table cellspacing="0" cellpadding="0" border="0" style="WIDTH:190.67mm;min-width: 190.67mm;HEIGHT:18.90mm;" class="a443"><tbody><tr><td style="vertical-align:top"><table cellspacing="0" cellpadding="0" border="0" cols="3" lang="en-US" class="r10" style="WIDTH:190.6679mm"><tbody><tr><td style="HEIGHT:0.38mm;WIDTH:60.86mm;min-width: 60.86mm;HEIGHT:0.38mm;"></td><td style="WIDTH:129.59mm;min-width: 129.59mm;HEIGHT:0.38mm;"></td><td style="WIDTH:0.22mm;min-width: 0.22mm;HEIGHT:0.38mm;"></td></tr><tr valign="top"><td style="HEIGHT:6.35mm;WIDTH:60.86mm;min-width: 60.86mm;"><table cellspacing="0" cellpadding="0" lang="en-US" style=""><tbody><tr><td style="WIDTH:60.86mm;min-width: 60.86mm;HEIGHT:6.35mm;" class="a438l">Free GRE Diagnostic Service</td></tr></tbody></table></td><td colspan="2" style="WIDTH:129.81mm;min-width: 129.81mm;HEIGHT:6.35mm;"></td></tr><tr valign="top"><td colspan="2" style="HEIGHT:12.17mm;WIDTH:190.45mm;min-width: 190.45mm;"><table cellspacing="0" cellpadding="0" lang="en-US" style=""><tbody><tr><td style="WIDTH:190.45mm;min-width: 190.45mm;HEIGHT:12.17mm;" class="a441"><div style="overflow-x:hidden;WIDTH:189.04mm;"><div class="a440"><span class="a439">For detailed information about your performance on the Verbal Reasoning and Quantitative Reasoning sections of the computer-delivered GRE General Test, access the free GRE Diagnostic Service from your ETS account. This service includes a description of the types of questions you answered right and wrong, the difficulty level of each question, and the time spent on each question. This service is available approximately 15 days after your test administration and for six months following your test administration.</span></div></div></td></tr></tbody></table></td><td style="WIDTH:0.22mm;min-width: 0.22mm;HEIGHT:12.17mm;"></td></tr></tbody></table></td></tr></tbody></table></td></tr><tr><td style="HEIGHT:4.52mm;WIDTH:0.00mm"></td><td colspan="5" style="WIDTH:190.32mm;min-width: 190.32mm;HEIGHT:4.52mm;"></td></tr><tr valign="top"><td style="WIDTH:0.00mm"></td><td style="WIDTH:0.28mm;min-width: 0.28mm;"></td><td colspan="6" style="WIDTH:190.43mm;min-width: 190.43mm;"><table cellspacing="0" cellpadding="0" border="0" style="WIDTH:190.77mm;min-width: 190.77mm;HEIGHT:20.52mm;" class="a456"><tbody><tr><td style="vertical-align:top"><table cellspacing="0" cellpadding="0" border="0" cols="2" lang="en-US" class="r10" style="WIDTH:190.7736mm"><tbody><tr><td style="HEIGHT:0.41mm;WIDTH:60.86mm;min-width: 60.86mm;HEIGHT:0.41mm;"></td><td style="WIDTH:129.91mm;min-width: 129.91mm;HEIGHT:0.41mm;"></td></tr><tr valign="top"><td style="HEIGHT:6.35mm;WIDTH:60.86mm;min-width: 60.86mm;"><table cellspacing="0" cellpadding="0" lang="en-US" style=""><tbody><tr><td style="WIDTH:60.86mm;min-width: 60.86mm;HEIGHT:6.35mm;" class="a446l">Retaking a GRE Test</td></tr></tbody></table></td><td style="WIDTH:129.91mm;min-width: 129.91mm;HEIGHT:6.35mm;"></td></tr><tr valign="top"><td colspan="2" style="WIDTH:190.77mm;min-width: 190.77mm;"><table cellspacing="0" cellpadding="0" border="0" style="WIDTH:190.77mm;min-width: 190.77mm;HEIGHT:13.76mm;" class="a454"><tbody><tr><td style="vertical-align:top"><table cellspacing="0" cellpadding="0" border="0" cols="1" lang="en-US" class="r10" style="WIDTH:190.7736mm"><tbody><tr valign="top"><td style="HEIGHT:6.53mm;WIDTH:190.77mm;min-width: 190.77mm;"><table cellspacing="0" cellpadding="0" lang="en-US" style=""><tbody><tr><td style="WIDTH:190.77mm;min-width: 190.77mm;HEIGHT:6.53mm;" class="a449"><div style="overflow-x:hidden;WIDTH:189.36mm;"><div class="a448"><span class="a447">You can take the GRE General Test once every 21 days, up to five times within any continuous rolling 12-month period (365 days). This applies even if you canceled your scores on a test taken previously. You can retake a GRE Subject Test once every 14 days.</span></div></div></td></tr></tbody></table></td></tr><tr><td style="HEIGHT:0.71mm;WIDTH:190.77mm;min-width: 190.77mm;HEIGHT:0.71mm;"></td></tr><tr valign="top"><td style="HEIGHT:6.52mm;WIDTH:190.77mm;min-width: 190.77mm;"><table cellspacing="0" cellpadding="0" lang="en-US" style=""><tbody><tr><td style="WIDTH:190.77mm;min-width: 190.77mm;HEIGHT:6.52mm;" class="a452"><div style="overflow-x:hidden;WIDTH:189.36mm;"><div class="a451"><span class="a450">Note: This policy will be enforced even if a violation is not immediately identified (e.g., inconsistent registration information) and test scores have been reported. In such cases, the invalid scores will be canceled and score recipients will be notified of the cancellation. Test fees will be forfeited.</span></div></div></td></tr></tbody></table></td></tr></tbody></table></td></tr></tbody></table></td></tr></tbody></table></td></tr></tbody></table></td></tr><tr><td style="HEIGHT:5.01mm;WIDTH:0.00mm"></td><td colspan="7" style="WIDTH:190.70mm;min-width: 190.70mm;HEIGHT:5.01mm;"></td></tr><tr valign="top"><td style="WIDTH:0.00mm"></td><td rowspan="2" colspan="4" style="WIDTH:0.65mm;min-width: 0.65mm;"></td><td colspan="3" style="WIDTH:190.06mm;min-width: 190.06mm;"><table cellspacing="0" cellpadding="0" border="0" style="WIDTH:190.40mm;min-width: 190.40mm;HEIGHT:21.37mm;" class="a466"><tbody><tr><td style="vertical-align:top"><table cellspacing="0" cellpadding="0" border="0" cols="2" lang="en-US" class="r10" style="WIDTH:190.4032mm"><tbody><tr><td style="HEIGHT:0.67mm;WIDTH:60.86mm;min-width: 60.86mm;HEIGHT:0.67mm;"></td><td style="WIDTH:129.54mm;min-width: 129.54mm;HEIGHT:0.67mm;"></td></tr><tr valign="top"><td style="HEIGHT:5.03mm;WIDTH:60.86mm;min-width: 60.86mm;"><table cellspacing="0" cellpadding="0" lang="en-US" style=""><tbody><tr><td style="WIDTH:60.86mm;min-width: 60.86mm;HEIGHT:5.03mm;" class="a459l">For More Information</td></tr></tbody></table></td><td style="WIDTH:129.54mm;min-width: 129.54mm;HEIGHT:5.03mm;"></td></tr><tr valign="top"><td colspan="2" style="WIDTH:190.40mm;min-width: 190.40mm;"><table cellspacing="0" cellpadding="0" border="0" style="WIDTH:190.40mm;min-width: 190.40mm;HEIGHT:15.66mm;" class="a464"><tbody><tr><td style="vertical-align:top"><table cellspacing="0" cellpadding="0" lang="en-US" style=""><tbody><tr><td style="WIDTH:190.40mm;min-width: 190.40mm;HEIGHT:15.66mm;" class="a462"><div style="overflow-x:hidden;WIDTH:188.99mm;"><div class="a461"><span class="a460">For information about interpreting your scores, see </span><a tabindex="1" href="https://www.ets.org/gre/test-takers/general-test/scores/understand-scores.html" style="font-weight:700;text-decoration:underline;color:Blue;" class="a460">https://www.ets.org/gre/test-takers/general-test/scores/understand-scores.html</a><span style="color:blue;" class="a460">.</span><span class="a460"><br><br>If you have any questions concerning your score report, email GRE Services at </span><a tabindex="2" href="mailto:gre-info@ets.org" style="font-weight:700;text-decoration:underline;color:Blue;" class="a460">gre-info@ets.org</a><span class="a460"> or call 1-609-771-7670 or 1-866-473-4373 (toll free for test takers in the U.S., U.S. Territories and Canada) between 8 a.m. and 7:45 p.m. (New York Time).</span></div></div></td></tr></tbody></table></td></tr></tbody></table></td></tr></tbody></table></td></tr></tbody></table></td></tr><tr><td style="HEIGHT:2.38mm;WIDTH:0.00mm"></td><td colspan="3" style="WIDTH:190.06mm;min-width: 190.06mm;HEIGHT:2.38mm;"></td></tr></tbody></table></td></tr></tbody></table></td><td width="100%" height="0"></td></tr><tr><td width="0" height="100%"></td></tr></tbody></table></div></div>
+			
+			
+			
+									
+		
+
+		
+</div> 
+
+
+
+<div class="clearfix button-bar">
+	<div class="pull-left">
+	  		
+
+
+
+
+
+
+
+
+
+
+
+
+
+     
+    
+        <span class="pull-left"> <a id="backBtnSpinnerBlocker" class="btn btn-eReg showBlocker " role="button" href="#" data-local-only="true">Back</a>
+        </span>
+    
+
+	</div>
+	<div class="pull-right">
+			
+			<a class="btn btn-primary" href="#" data-local-only="true">
+			   Request Score Review</a>
+		
+		
+	</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+				</div>
+			</div>
+				
+				
+
+
+
+
+<footer id="template-footer" role="contentinfo">
+<div class="footer-info">
+		<div class="footer-list">
+			<ul class="list-inline footer-links">
+		
+		
+		<li>
+        	<a href="http://ets.org/gre/contact" target="_blank">
+        	Contact Us
+        	</a>
+        </li>
+        <li>
+        	<a class="popup" href="http://www.ets.org/legal" target="_blank">
+        	Legal
+        	</a>
+        </li>
+        <li>
+            <a class="popup" href="http://www.ets.org/legal/privacy" target="_blank">
+            Privacy &amp; Security
+            </a>
+        </li>
+        </ul>
+        <p class="footer-legal" aria-label="Copyright and Trademarks">
+		Copyright © 2026 by Educational Testing Service. All rights reserved.&nbsp;All trademarks are the property of their respective owners.</p>
+		</div>
+	</div>
+	<div style="display:none">1535,eregweb01</div>
+
+</footer>
+			</div>
+		</div>
+		
+		
+
+
+
+
+
+
+		
+
+        
+
+	
+
+
+<div class="go2933276541 go2369186930" id="hs-web-interactives-top-anchor"><div id="hs-interactives-modal-overlay" class="go1632949049"></div></div>
+<div class="go2933276541 go1348078617" id="hs-web-interactives-bottom-anchor"></div>
+<div id="hs-web-interactives-floating-container">
+  <div id="hs-web-interactives-floating-top-left-anchor" class="go2417249464 go613305155">
   </div>
-
-  <footer id="template-footer" class="ereg-footer" role="contentinfo">
-    <div class="footer-info"><div class="footer-list">
-      <ul class="list-inline footer-links">
-        <li><a href="https://www.ets.org/gre/contact" target="_blank" rel="noreferrer">Contact Us</a></li>
-        <li><a href="https://www.ets.org/legal" target="_blank" rel="noreferrer">Legal</a></li>
-        <li><a href="https://www.ets.org/legal/privacy" target="_blank" rel="noreferrer">Privacy &amp; Security</a></li>
-      </ul>
-      <p class="footer-legal">Copyright © 2026 by Educational Testing Service. All rights reserved. All trademarks are the property of their respective owners.</p>
-    </div></div>
-  </footer>
-
-  <script src="../../js/score-report.js"></script>
-</body>
-</html>
+  <div id="hs-web-interactives-floating-top-right-anchor" class="go2417249464 go471583506">
+  </div>
+  <div id="hs-web-interactives-floating-bottom-left-anchor" class="go2417249464 go3921366393">
+  </div>
+  <div id="hs-web-interactives-floating-bottom-right-anchor" class="go2417249464 go3967842156">
+  </div>
+</div>
+<link rel="stylesheet" href="./assets/report.css"><script src="./assets/report.js"></script></body></html>

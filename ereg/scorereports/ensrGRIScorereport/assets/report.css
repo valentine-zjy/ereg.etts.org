@@ -1,0 +1,269 @@
+/* Reference report layout with PDF score panel and photograph. */
+.candidate-photo {
+    display: block;
+    width: 42.74mm;
+    height: auto;
+    object-fit: contain;
+    transform: scaleX(.92);
+    transform-origin: center
+}
+
+.a42v,
+.a42 {
+    height: auto !important;
+    min-height: 22.82mm;
+    overflow: visible !important
+}
+
+.score-summary {
+    width: 190.75mm;
+    margin: 0 0 16px;
+    font-family: Arial, sans-serif;
+    color: #000;
+    line-height: normal;
+    box-sizing: border-box
+}
+
+.score-summary * {
+    box-sizing: border-box
+}
+
+
+/* Your Scores for the General Test Taken on August 5, 2026文字框调整*/
+
+.score-summary h2 {
+    height: 24px;
+    margin: 0 0 8px;
+    padding: 4px 3px;
+    background: #60234f;
+    color: white;
+    font: 700 13.33px/16px Arial, sans-serif;
+    white-space: nowrap
+}
+
+.score-panels {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    height: 170px;
+    padding: 9px 6px;
+    border: 1.3px solid #b4560a
+}
+
+.score-panel {
+    min-width: 0;
+    padding: 0 6px;
+    border-right: 1.3px solid #b4560a
+}
+
+.score-panel:first-child {
+    padding-left: 0
+}
+
+.score-panel:last-child {
+    padding-right: 0;
+    border-right: 0
+}
+
+.score-panel h3 {
+    height: 21px;
+    margin: 0;
+    background: #b2432f;
+    color: white;
+    text-align: center;
+    font: 700 13.33px/21px Arial, sans-serif;
+    white-space: nowrap
+}
+
+.score-plot {
+    position: relative;
+    height: 126px;
+    margin-top: 0
+}
+
+.score-scale {
+    position: absolute;
+    left: 24px;
+    right: 25px;
+    top: 77px;
+    height: 19px;
+    background: #c5d8eb
+}
+
+.score-marker {
+    position: absolute;
+    top: 0;
+    width: 0;
+    height: 19px;
+    text-align: center
+}
+
+.score-label {
+    position: absolute;
+    width: 64px;
+    left: -32px;
+    top: -68px;
+    font: bold 10px/11px Arial, sans-serif;
+    white-space: nowrap
+}
+
+.score-bubble {
+    position: absolute;
+    top: -43px;
+    left: -25.5px;
+    width: 51px;
+    height: 36px;
+    border-radius: 3px;
+    background: #b2432f;
+    color: #fff;
+    font: 700 19px/36px Arial, sans-serif
+}
+
+.score-bubble:after {
+    content: '';
+    position: absolute;
+    left: 22px;
+    top: 35px;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-top: 5px solid #b2432f
+}
+
+.score-stem {
+    position: absolute;
+    left: 0;
+    top: -4px;
+    width: 1px;
+    height: 27px;
+    background: #111
+}
+
+.score-percentile {
+    position: absolute;
+    left: -37px;
+    top: 26px;
+    width: 74px;
+    font: bold 12px/12px Arial, sans-serif
+}
+
+.scale-min,
+.scale-max {
+    position: absolute;
+    top: 82px;
+    font: 10px/12px Arial, sans-serif
+}
+
+.scale-min {
+    left: 1px
+}
+
+.scale-max {
+    right: 1px
+}
+
+@media(max-width:820px) {
+    #scoreTable {
+        overflow-x: auto
+    }
+
+    .score-summary {
+        flex-shrink: 0
+    }
+}
+
+@page {
+    size: A4;
+    margin: 10mm
+}
+
+@media print {
+
+    header,
+    footer,
+    #footer,
+    .btn,
+    hr,
+    #scoreTable>h1,
+    #scoreTable>div[align=right],
+    .bottom-buttons {
+        display: none !important
+    }
+
+    body {
+        background: white !important
+    }
+
+    #contentMain,
+    .content-wrapper,
+    #template-main-wrapper {
+        width: auto !important;
+        margin: 0 !important;
+        padding: 0 !important
+    }
+
+    #scoreTable {
+        zoom: .9;
+        overflow: visible !important
+    }
+
+    .score-summary {
+        break-inside: avoid
+    }
+
+    * {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact
+    }
+}
+
+/*Your Scores for the General Test Taken on August 5, 2026部分字号调整*/
+.score-panel:first-child .score-bubble {
+  font-size: 17px;
+}
+/* 170 的字号 */
+.score-panel:nth-child(2) .score-bubble {
+    font-size: 17px;
+}
+
+/* 3.0 的字号 */
+.score-panel:nth-child(3) .score-bubble {
+    font-size: 17px;
+}
+
+.score-summary h2 {
+  font-size: 14px;      /* 字号 */
+  padding-left: 11px;   /* 文字距紫色框左边的距离 */
+  padding-right: 12px;  /* 右侧预留空间 */
+}
+
+/* Verbal Reasoning：左侧 130、右侧 170 */
+.score-panel:nth-child(1) .scale-min { left: 4px; }
+.score-panel:nth-child(1) .scale-max { right: 6px; }
+
+/* Quantitative Reasoning：左侧 130、右侧 170 */
+.score-panel:nth-child(2) .scale-min { left: 4px; }
+.score-panel:nth-child(2) .scale-max { right: 6px; }
+
+/* Analytical Writing：左侧 0、右侧 6 */
+.score-panel:nth-child(3) .scale-min { left: 15px; }
+.score-panel:nth-child(3) .scale-max { right: 15px; }
+
+/* 1. 三个红色标题框：下移、调整长短 */
+.score-panel h3 {
+  position: relative;
+  top: 3px;                  /* 向下移动 3px */
+  width: calc(100% - 10px);   /* 总宽度缩短 10px */
+  margin-left: auto;
+  margin-right: auto;        /* 缩短后保持居中 */
+}
+
+/* 三组 Percentile 文字下移 */
+
+.score-percentile {
+  top: 30px;
+}
+
+/* 三组 Your Scaled Score / Your Score 文字下移 */
+
+.score-label {
+  top: -65px;
+}
