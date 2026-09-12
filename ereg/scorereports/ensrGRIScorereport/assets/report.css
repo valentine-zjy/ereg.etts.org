@@ -145,6 +145,9 @@
     font-family: Arial, sans-serif;
     display: inline-block;
     width: 10.566px;
+    height: 13.656px;
+    overflow: hidden;
+    vertical-align: baseline;
     color: transparent;
     -webkit-text-stroke: 0 transparent;
     position: relative;
@@ -158,7 +161,7 @@
     content: '';
     position: absolute;
     left: 0;
-    bottom: 11px;
+    bottom: 0;
     width: 10.566px;
     height: 13.656px;
     background: url("./arial-one.svg") center / 100% 100% no-repeat;
