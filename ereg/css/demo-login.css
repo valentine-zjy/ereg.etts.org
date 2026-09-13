@@ -33,3 +33,8 @@
     width: 100%;
   }
 }
+
+#forgot-links-ul {
+  position: relative;
+  top: 5px;
+}
