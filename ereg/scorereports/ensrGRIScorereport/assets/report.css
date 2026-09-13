@@ -14,6 +14,9 @@
     position: relative;
     top: -2px;
 }
+.a25 {
+    top: 0;
+}
 .candidate-photo {
     display: block;
     width: 42.74mm;
