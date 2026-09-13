@@ -1,4 +1,10 @@
 /* Reference report layout with PDF score panel and photograph. */
+.a414l {
+    list-style: none !important;
+}
+.a414l::marker {
+    content: '';
+}
 #scoreTable .ap div[style*="overflow-x:hidden"] {
     overflow: visible !important;
 }
