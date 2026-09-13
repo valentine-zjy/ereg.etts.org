@@ -1,5 +1,5 @@
 /* Reference report layout with PDF score panel and photograph. */
-.a22v, .a22 {
+.a22v, .a22, .a22 > div {
     overflow: visible !important;
 }
 .a21 > .a20 {
