@@ -1,4 +1,7 @@
 /* Reference report layout with PDF score panel and photograph. */
+.a22v, .a22 {
+    overflow: visible !important;
+}
 .a21 > .a20 {
     position: relative;
     top: -3px;
