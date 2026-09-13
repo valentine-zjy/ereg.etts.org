@@ -1,7 +1,7 @@
 /* Reference report layout with PDF score panel and photograph. */
 .a21 > .a20 {
     position: relative;
-    top: -5px;
+    top: -4px;
 }
 #scoreTable > div[align="right"] .btn {
     position: relative;
