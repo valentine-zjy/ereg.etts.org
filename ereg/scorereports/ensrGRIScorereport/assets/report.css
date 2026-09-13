@@ -67,7 +67,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 0;
+    padding: 0 0 2px;
     line-height: 1;
     font-family: "myriad-pro", Arial, sans-serif;
     font-weight: 600;
@@ -75,6 +75,10 @@
 }
 
 .score-summary #score-title {
+    display: flex;
+    align-items: center;
+    padding-top: 0;
+    padding-bottom: 0;
     position: relative;
     top: -1px;
     font-family: Arial, sans-serif;
