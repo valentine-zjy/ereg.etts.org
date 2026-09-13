@@ -64,6 +64,11 @@
 
 /* Semibold subject headings remain lighter than the main title. */
 .score-summary .score-panel h3 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    line-height: 1;
     font-family: "myriad-pro", Arial, sans-serif;
     font-weight: 600;
     font-synthesis: none;
