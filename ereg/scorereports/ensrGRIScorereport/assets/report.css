@@ -1,4 +1,7 @@
 /* Reference report layout with PDF score panel and photograph. */
+#scoreTable .ap div[style*="overflow-x:hidden"] {
+    overflow: visible !important;
+}
 #scoreTable td[style*="border-top:1pt solid #b2432f"] {
     transform: translateY(-2px);
 }
