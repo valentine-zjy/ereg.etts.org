@@ -1,4 +1,8 @@
 /* Reference report layout with PDF score panel and photograph. */
+.a25, .a34, .a37, .a39 {
+    position: relative;
+    top: 2px;
+}
 .candidate-photo {
     display: block;
     width: 42.74mm;
