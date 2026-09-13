@@ -5,7 +5,7 @@
 }
 .a25, .a34, .a37, .a39 {
     position: relative;
-    top: 0;
+    top: -1px;
 }
 .candidate-photo {
     display: block;
